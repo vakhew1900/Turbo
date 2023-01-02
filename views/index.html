@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/views/css/index.css">
     <link rel="stylesheet" href="/views/css/main-information.css">
     <link rel="stylesheet" href="/views/css/footer.css">
+    <link rel="stylesheet" href="/views/css/menu-bar.css">
 </head>
 
 <body>
@@ -31,10 +32,14 @@
         </div>
 
         <nav class="nav-header">
-            <button>Войти</button>
+            <button class="entry-button">Войти</button>
         </nav>
     </header>
 
+    <div class="menu-bar">
+        
+    </div>
+    <!-- <div class="main-content"> -->
     <section class="first-slide">
         <div class="description-container">
             <div class="description-block">
@@ -54,7 +59,6 @@
     <div class="gradient">
 
     </div>
-
     <section class="main-information-container">
         <section class="main-information-block">
             <h1>TURBO - сайт о играх и не только</h1>
@@ -122,13 +126,15 @@
             <h1><br> Знакомство с интерфейсом</h1>
 
             <div class="slider-container">
-                <div class="slider"></div>
+                <div class="slider">
+                    <img src="/views/image/jpg/design.jpg" alt="">
+                </div>
             </div>
 
             <div class="card-container">
-                <div class="card" draggable="true"></div>
-                <div class="card" draggable="true"></div>
-                <div class="card" draggable="true"></div>
+                <div class="card" style="color: beige;">1</div>
+                <div class="card" style="color: beige;">2</div>
+                <div class="card" style="color: beige;">3</div>
             </div>
         </section>
     </section>
@@ -154,6 +160,10 @@
             </div>
         </div>
     </footer>
+
+    <script src="/views/script/menu-bar.js"></script>
+    <script src="/views/script/draggable-card.js"></script>
+    <!-- </div> -->
 </body>
 
 </html>

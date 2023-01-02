@@ -1,0 +1,22 @@
+:root {
+    --main-color: #041E27;
+    --font-color: #FFFFFF;
+    --button-color: #FFFAFA;
+    --coef: 1.15;
+    --footer-color: #D9D9D9;
+}
+
+.menu-bar{
+    height: 100vh;
+    top:70px;
+    width: 300px;
+    left: -300px;
+    position: fixed;
+    background-color: var(--main-color);
+    transition: left .3s;
+}
+
+/* .main-content{
+    width: 100%;
+} */
+

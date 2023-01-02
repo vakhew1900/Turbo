@@ -8,7 +8,8 @@
     --main-color: #041E27;
     --font-color: #FFFFFF;
     --button-color: #FFFAFA;
-    --coef : 1.15
+    --button-hover-color : #f3e6e6;
+    --coef : 1.15;
 }
 
 body{
@@ -50,7 +51,7 @@ body{
 }
 
 
-button{
+.entry-button{
     background-color: var(--button-color);
     height: 45px;
     width: 135px;
@@ -63,9 +64,22 @@ button{
     font-style: normal;
 }
 
+.entry-button:hover{
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    box-shadow: 7px 6px 6px 1px ;
+    transition: .7s;
+}
+
 .vector-img{
     height: 25px;
     width: 30px;
+}
+
+
+.vector-img:hover{
+    scale: 1.1;
+    cursor: pointer;
 }
 
 @media (max-width: 1200px){
@@ -74,3 +88,4 @@ button{
         display: none;
     }
 }
+
