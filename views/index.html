@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/views/css/main-information.css">
     <link rel="stylesheet" href="/views/css/footer.css">
     <link rel="stylesheet" href="/views/css/menu-bar.css">
+    <link rel="stylesheet" href="/views/css/slider.css">
 </head>
 
 <body>
@@ -37,7 +38,7 @@
     </header>
 
     <div class="menu-bar">
-        
+
     </div>
     <!-- <div class="main-content"> -->
     <section class="first-slide">
@@ -63,25 +64,34 @@
         <section class="main-information-block">
             <h1>TURBO - сайт о играх и не только</h1>
             <div class="project-description">
+                <!-- <h1>TURBO - сайт о играх и не только</h1> -->
                 <div class="main-image-container">
                     <img src="/views/image/jpg/main.jpg" alt="">
                 </div>
 
                 <div class="main-content">
+                    <!-- <div class="text" style="max-width :90%;"> -->
                     <p>Я решил стать гуманистом.</p>
                     <p>Я буду любить людей. Во всех их проявлениях. </p>
-                    Я буду переводить бабушек через дорогу - пусть они живут дольше и воспитывают своих внуков. Я буду
-                    помогать маленьким детям - они будущее этой планеты. Соседу помогу положить паркет, коллегу прикрою
+                    Я буду переводить бабушек через дорогу - пусть они живут дольше и воспитывают своих внуков. Я
+                    буду
+                    помогать маленьким детям - они будущее этой планеты. Соседу помогу положить паркет, коллегу
+                    прикрою
                     на работе. Родителей я буду навещать постоянно - пусть порадуются. Я буду делать подарки
                     родственникам и друзьям, утешать незнакомых людей, улыбаться прохожим. Я хочу, чтобы всем было
                     хорошо.
                     Я буду прививать свой образ жизни другим - я создам целое общество таких же как я. Буду
                     проповедовать любовь и терпимость. Всепрощение и мир во всём мире. Мы будем жертвовать своими
-                    интересами во имя блага других людей. Создадим фонд, будем помогать безработным и бездомным, давать
+                    интересами во имя блага других людей. Создадим фонд, будем помогать безработным и бездомным,
+                    давать
                     деньги на медицину, обучение. Мы привлечём меценатов, будем спонсировать детские дома, хосписы,
                     центры по борьбе с неизлечимыми болезнями. Мы будем примером - и люди станут добрее.
+                    <!-- </div> -->
                 </div>
+
             </div>
+
+
 
             <h1> Особенности проекта</h1>
             <div class="feature-project main-content">
@@ -126,9 +136,23 @@
             <h1><br> Знакомство с интерфейсом</h1>
 
             <div class="slider-container">
-                <div class="slider">
-                    <img src="/views/image/jpg/design.jpg" alt="">
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <img src="/views/image/jpg/design.jpg" alt="">
+                    </div>
+                    <div class="slider">
+                        <img src="/views/image/jpg/main.jpg" alt="">
+                    </div>
+                    <div class="slider">
+                        <img src="/views/image/jpg/1.jpg" alt="">
+                    </div>
                 </div>
+
+            </div>
+            <div class="slider-nav">
+                <li href="" class="slider-switcher" data-number ="1" ></li>
+                <li href="" class="slider-switcher" data-number ="2" ></li>
+                <li href="" class="slider-switcher" data-number ="3" ></li>
             </div>
 
             <div class="card-container">
@@ -163,6 +187,7 @@
 
     <script src="/views/script/menu-bar.js"></script>
     <script src="/views/script/draggable-card.js"></script>
+    <script src="/views/script/slider.js"></script>
     <!-- </div> -->
 </body>
 

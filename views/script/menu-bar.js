@@ -1,5 +1,5 @@
 const menuButton = document.querySelector('.vector-img');
-const mainContent = document.querySelector('.main-content');
+// const mainContent = document.querySelector('.main-content');
 console.log(menuButton)
 
 const openCloseMenu = ()=>{
