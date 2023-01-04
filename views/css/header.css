@@ -31,7 +31,7 @@ body{
     width: 100%;
     background-color: var(--main-color);
     z-index: 1;
-    /* border-bottom: solid #FFFFFF; */
+     /* border-bottom: solid #FFFFFF; */
 }
 
 .menu-logo{

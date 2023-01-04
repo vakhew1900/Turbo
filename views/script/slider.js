@@ -3,9 +3,9 @@ const wrapper = document.querySelector( ".slider-wrapper" );
 const slideSwitchers = document.querySelectorAll('.slider-switcher');
 
 let currentIndex = 0;
-const sliderLength = sliderList.length;
+const sliderLength = sliderList;
 
-
+slideSwitchers[0].classList.add('selected-switcher');
 
 const slide = (index)=>{
     console.log()

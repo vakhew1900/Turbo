@@ -1,4 +1,5 @@
 const menuButton = document.querySelector('.vector-img');
+const pageContent = document.querySelector('.page-content')
 // const mainContent = document.querySelector('.main-content');
 console.log(menuButton)
 
@@ -10,13 +11,14 @@ const openCloseMenu = ()=>{
     let width = getComputedStyle(menuBar).width;
     if(getComputedStyle(menuBar).left == '-' + width){
         menuBar.style.left = '0px';
-        // mainContent.style.transform = 'translateX('+width+')';   
+        pageContent.classList.add('menu-selected')
+        
     }
     else {
         let x = getComputedStyle(menuBar).width
         // console.log(x + 'px')
         menuBar.style.left  =  '-' + x;
-        // mainContent.style.transform = 'translateX(0px)';
+        pageContent.classList.remove('menu-selected');
     }
 }
 

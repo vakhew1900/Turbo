@@ -4,8 +4,8 @@
 }
 
 .slider-container {
-    max-width: 640px;
-    max-height: 360px;
+    width: 640px;
+    height: 360px;
     overflow: hidden;
 }
 
@@ -21,11 +21,18 @@
 
 .slider {
     background-size: cover;
-    max-height: 100%;
+    height: inherit;
     width: calc(100% / 3);
-    object-fit: cover;
+    display: flex;
+    
 }
 
+.slider>img{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    border-radius: 1%;
+}
 
 
 button{
@@ -53,4 +60,37 @@ button{
 .selected-switcher{
     scale: 1.2;
     background-color: var(--list-color);
+}
+
+
+@media (max-width: 992px) {
+    .slider-container {
+        width: 540px;
+        height: 320px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 767px) {
+    .slider-container {
+        width: 440px;
+        height: 250px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 500px) {
+    .slider-container {
+        width: 380px;
+        height: 250px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 380px) {
+    .slider-container {
+        width: 280px;
+        height: 250px;
+        overflow: hidden;
+    }
 }
