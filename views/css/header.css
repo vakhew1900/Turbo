@@ -1,7 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    border: 0px;
+    /* border: 0px; */
   }
 
 :root{
@@ -24,7 +24,7 @@ body{
 }
 .header-site{
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     align-items: center;
     justify-content: space-between;
     height: 70px;
@@ -72,6 +72,11 @@ body{
     cursor: pointer;
     box-shadow: 7px 6px 6px 1px ;
     transition: .7s;
+}
+
+.entry-button:active{
+    border: solid;
+    border: var(--main-color);
 }
 
 .vector-img{

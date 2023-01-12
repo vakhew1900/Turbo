@@ -1,0 +1,120 @@
+:root{
+    --main-color: #041E27;
+    --font-color: #FFFFFF;
+    --button-color: #FFFAFA;
+    --button-hover-color : #f3e6e6;
+    --coef : 1.15;
+    --background-color: #EEE2E2;
+    --button-register-color : #23EF2B;
+    --border-form-color: #8F8E8E;
+
+}
+
+body{
+    background-color: var(--background-color);
+}
+
+.enter-form{
+    /* display: block; */
+    width: 500px;
+    height: auto;
+    /* background: #e94040; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15%;
+    border-radius: 3%;
+    padding-bottom: 40px;
+    border: solid var(--border-form-color);
+    border-width: 1px;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    
+}
+
+.form-name{
+    margin-top: 3.5%;
+
+
+    /* шрифт */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+.main-information-block{
+    background-color: var(--background-color);
+}
+
+
+.input-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-container>input{
+    width: 80%;
+    height: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border: solid var(--border-form-color);
+    border-width: 2px;
+    padding-left: 10px;
+
+    /* шрифт */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.07rem;
+}
+
+
+
+
+.form-name{
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+.manage-block{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.manage-block>input{
+
+    margin-bottom: 10px;
+    width: 250px;
+    height: 40px;
+    background-color: #23EF2B;
+    border: 0;
+    border-radius: 7px;
+
+    /* шрифт */
+    color: var(--button-color);
+    font-size: 1.2rem;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+    transition: .7s;
+}
+
+
+.manage-block>input:hover{
+
+
+    background-color: #23ca29;  
+    box-shadow: 3px 2px 2px 1px rgba(0, 0, 0, 0.25);
+
+}
+
+.manage-block>a{
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
