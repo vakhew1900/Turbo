@@ -23,27 +23,10 @@
 </head>
 
 <body>
-    <header class='header-site'>
-        <div class="logo-container">
-            <div class="menu-logo">
-                <img class="vector-img" src="./image/vector/menu.svg" alt="говно">
-                <div class="logo-text" onclick="location.href = 'index.html'">Turbo</div>
-            </div>
-        </div>
-
-        <nav class="nav-header">
-            <button class="entry-button" onclick="location.href = 'login.html'">Войти</button>
-        </nav>
-    </header>
-
+   
+    <%- include('./header.ejs') %>
     <div class="page-with-menu">
-        <div class="menu-bar">
-            <ul class="menu-list">
-                <li class="menu-element">Новости</li>
-                <li class="menu-element">Закладки</li>
-                <li class="menu-element">Популярное</li>
-            </ul>
-        </div>
+        <%- include('menu-bar.ejs')  %> 
 
         <div class="page-content">
 
@@ -61,34 +44,14 @@
 
                         <div class="manage-block">
                             <input type="submit" value="Войти" />
-                            <a href="./register.html" id="registration-link">Зарегистрироваться</a>
+                            <a href="/register" id="registration-link">Зарегистрироваться</a>
                         </div>
 
                     </form>
                 </div>
             </section>
 
-            <footer class="footer">
-                <div class="footer-link">
-                    <li><a href="#">О проекте</a></li>
-                    <li><a href="#">О создателях</a></li>
-                    <li><a href="#">Реклама на сайте</a></li>
-                    <li><a href="#">Обратная связь</a></li>
-                </div>
-
-                <div class="footer-logo">
-                    <div class="main-footer-logo">
-                        <div class="footer-svg">
-                            <img src="./image/vector/footer.svg" alt="">
-                        </div>
-                        <div class="main-footer-text">© 2022–2022 Turbo.ru</div>
-                    </div>
-                    <div class="adding-footer-text">
-                        Использование любых материалов сайта
-                        без согласования с администрацией запрещено
-                    </div>
-                </div>
-            </footer>
+            <%- include('./footer.ejs') %>
         </div>
     </div>
     <script src="./script/menu-bar.js"></script>
