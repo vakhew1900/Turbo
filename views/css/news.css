@@ -1,0 +1,73 @@
+:root {
+    --main-color: #041E27;
+    --font-color: #FFFFFF;
+    --button-color: #FFFAFA;
+    --coef: 1.15;
+    --footer-color: #D9D9D9;
+}
+
+.news-container{
+    margin-top: 30px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.news-block{
+    width: 400px;
+    height: 250px;
+    border-radius: 2%;
+    /* background-color: violet; */
+    margin-bottom: 40px;
+    /* color: var(--font-color); */
+}
+
+.date{
+    width: 90%;
+    justify-content: flex-start;
+}
+
+.news-block{
+    background-image: url(/views/image/jpg/1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--font-color);
+    position: relative;
+    background-color: rgba(0, 0, 0, .35);
+    background-blend-mode: multiply;
+}
+
+
+.news-block-container{
+    /* position: relative; */
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+
+.news-name{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+
+.news-description{
+    margin-top:.7rem;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.news-author{
+    position: absolute;
+    top: 80%;
+    font-size: .9rem;
+    color: var(--footer-color);
+}

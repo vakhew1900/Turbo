@@ -24,7 +24,9 @@ body{
 }
 .header-site{
     display: flex;
-    /* position: fixed; */
+    position: fixed;
+    left: 0;
+    top: 0;
     align-items: center;
     justify-content: space-between;
     height: 70px;
