@@ -1,0 +1,35 @@
+.redactor-block{
+    min-height: 100vh;
+    width: 100%;
+    /* background-color:blue; */
+    box-shadow: 10px, 10px, 1px 10px,;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-information-block {
+    max-width: 65%;
+    min-width: 65%;
+    background-color: #FFFAFA;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea{
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+#header-area{
+    margin-top: 30px;
+}
+
+.main-image-container {
+    max-width: 600px;
+    max-height: 400px;
+    margin-bottom: 2rem;
+}

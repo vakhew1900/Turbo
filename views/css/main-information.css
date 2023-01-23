@@ -22,6 +22,7 @@ body {
 
 .main-information-block {
     max-width: 65%;
+    /* min-width: 60%; */
     background-color: #FFFAFA;
     color: black;
     display: flex;
