@@ -43,12 +43,11 @@ async function sendImage() {
   console.log(form.get('image'))
   const res = await fetch(url, {
     method: 'POST',
-    // headers: {
-    //   'Content-Type': "multipart/form-data; charset",
-    // },
     body: form
   })
 
+  const filenames = await res.json();
+  console.log(filenames)
 }
 
 
