@@ -48,6 +48,22 @@ async function sendImage() {
 
   const filenames = await res.json();
   console.log(filenames)
+  const redactorBlock = createSendHtml(filenames)
+}
+
+
+function createSendHtml(filenames){
+    
+    const pref = 'http://localhost:4000/images/'
+    const redactorBlock = document.querySelector('.redactor-block').cloneNode(true);
+    const images = redactorBlock.querySelectorAll('.main-image-container>img')
+    for(let i = 0; i < filenames.length; i++){
+        images[i].src = pref + filenames[i];
+    }
+
+    console.log(redactorBlock)
+
+    return redactorBlock.outerHTML;
 }
 
 

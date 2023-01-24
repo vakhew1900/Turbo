@@ -36,6 +36,7 @@ app.use(cors())
 app.use(express.json());
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(express.static(__dirname + '/views'));
+app.use('/images', express.static(__dirname + '/images'));
 app.set('view engine', 'ejs');
 
 
