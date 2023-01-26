@@ -10,6 +10,7 @@
     --button-color: #FFFAFA;
     --button-hover-color : #f3e6e6;
     --coef : 1.15;
+    --button-height: 45px
 }
 
 body{
@@ -56,9 +57,9 @@ body{
 }
 
 
-.entry-button{
+.header-button{
     background-color: var(--button-color);
-    height: 45px;
+    height: var(--button-height);
     width: 135px;
     box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -69,14 +70,15 @@ body{
     font-style: normal;
 }
 
-.entry-button:hover{
+
+.header-button:hover{
     background-color: var(--button-hover-color);
     cursor: pointer;
     box-shadow: 7px 6px 6px 1px ;
     transition: .7s;
 }
 
-.entry-button:active{
+.header-button:active{
     border: solid;
     border: var(--main-color);
 }
@@ -99,3 +101,23 @@ body{
     }
 }
 
+/* элементвы видимость которых зависит от авторизации пользователя */
+
+.create-article-button{
+    display: none;
+}
+
+.avatar-icon{
+    border-radius: 100%;
+    height: var(--button-height);
+    width: var(--button-height);
+    background-color: #FFFFFF;
+}
+
+.nav-header{
+    display: flex;
+}
+
+.nav-header>*{
+    margin-left: 30px;
+}

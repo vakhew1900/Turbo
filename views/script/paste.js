@@ -30,13 +30,20 @@ document.onpaste = function (pasteEvent) {
             const src = event.target.result;
             console.log(src)
             const mainImageContainer = createImageContainerByScr(src);
-            element.after(mainImageContainer); 
-            mainImageContainer.after(document.createElement('textarea'));
+            element.after(mainImageContainer);
+            const textarea = createTextArea();
+            mainImageContainer.after(textarea);
             
         };
 
         reader.readAsDataURL(blob);
     }
+}
+
+const createTextArea = () => {
+    const textarea = document.createElement('textarea');
+    textarea.placeholder = "Написать";
+    return textarea;
 }
 
 const createMainImageContainer = (image) =>{

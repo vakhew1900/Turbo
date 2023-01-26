@@ -33,3 +33,11 @@ textarea{
     max-height: 400px;
     margin-bottom: 2rem;
 }
+
+
+/* textarea */
+textarea{
+    border: 0;
+    outline: none;
+	-moz-appearance: none;
+}
