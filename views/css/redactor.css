@@ -39,5 +39,5 @@ textarea{
 textarea{
     border: 0;
     outline: none;
-	-moz-appearance: none;
+	/* -moz-appearance: none; */
 }

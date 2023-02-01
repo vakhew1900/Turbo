@@ -111,11 +111,18 @@ body{
     border-radius: 100%;
     height: var(--button-height);
     width: var(--button-height);
-    background-color: #FFFFFF;
+    background-image: url(/image/jpg/1.jpg);
+    background-size: cover;    
+}
+
+.avatar-icon:hover{
+    border: 3px solid var(--button-color);
 }
 
 .nav-header{
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-header>*{
