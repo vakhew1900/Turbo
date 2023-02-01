@@ -7,6 +7,7 @@ type_id int not null primary key auto_increment,
 `name` varchar(255) not null
 );
 
+rename table multi_content to multi_contents;
 create table multi_content(
 multi_content_id int not null primary key auto_increment,
 `path` varchar(300) not null,
