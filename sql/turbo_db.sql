@@ -18,6 +18,7 @@ on delete cascade
 on update cascade
 );
 
+rename table `status` to statuses;
 create table `status`(
 status_id int not null primary key auto_increment,
 `name` varchar(300) not null
@@ -59,14 +60,19 @@ foreign key(draft_id) references pages(page_id)
 create table news(
   news_id int not null primary key auto_increment,
   title varchar(200) not null,
-  main_image_url varchar(300),
+ --  main_image_url varchar(300),
   subtitle varchar(300),
   foreign key(news_id) references pages(page_id)
   on delete cascade
   on update cascade
 );
 
+alter table news drop column main_image_url;
 
+alter table news add column main_image_id int not null,
+				add foreign key(main_image_id) references multi_contents(multi_content_id)
+                on delete cascade
+                on update cascade;
 
 create table comments(
 comment_id int not null primary key auto_increment,
