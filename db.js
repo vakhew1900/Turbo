@@ -13,6 +13,7 @@ const sequelize = new Sequelize(
 
 
 const Type = require('./model/Type')(sequelize);
-
+const MultiContent = require('./model/MultiContent')(sequelize);
 
 // const type = Type.create({name: "active"});
+// const multi_content = MultiContent.create({path: "./images", name: "image", type_id : 1 })
