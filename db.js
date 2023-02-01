@@ -65,7 +65,7 @@ Page.belongsTo(User,
 
 
 // MultiContent User
-MultiContent.hasOne( User,
+MultiContent.hasOne(User,
     {
         foreignKey: "avatar_id"
     }
@@ -105,7 +105,7 @@ News.belongsTo(Page,
 );
 
 // Comment-MultiContent
-MultiContent.hasOne( Comment,
+MultiContent.hasOne(Comment,
     {
         foreignKey: "multi_content_id"
     }
@@ -117,7 +117,93 @@ Comment.belongsTo(MultiContent,
     }
 );
 
+// Comments-News
+const NewsComments = sequelize.define('comments_news',
+    {
+        comment_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Comment,
+                key: 'comment_id'
+            }
 
+        },
+
+        news_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: News,
+                key: 'news_id'
+            }
+        },
+    },
+
+    {
+        timestamps: false
+    },
+
+    {
+        tableName: 'comments_news'
+    }
+);
+
+
+Comment.belongsToMany(News, { through: NewsComments, foreignKey: 'comment_id' });
+News.belongsToMany(Comment, { through: NewsComments, foreignKey: 'news_id' });
+
+
+//MultiContent-Page
+
+const MultiContentPage = sequelize.define('multi_content_page',
+    {
+        multi_content_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: MultiContent,
+                key: 'multi_content_id'
+            }
+
+        },
+
+        page_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Page,
+                key: 'page_id'
+            }
+        },
+
+        number: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
+    },
+
+    {
+        timestamps: false
+    },
+
+    {
+        freezeTableName: true,
+    },
+
+    {
+        tableName: 'multi_content_page'
+    },
+);
+
+MultiContent.belongsToMany(Page, { through: MultiContentPage, foreignKey: 'multi_content_id' });
+Page.belongsToMany(MultiContent, { through: MultiContentPage, foreignKey: 'page_id' });
+
+Page.findAll(
+    {
+        include: MultiContent
+    }
+).then(res => console.log(JSON.stringify(res, null, 2)));
 
 // const type = Type.create({name: "active"});
 // const multi_content = MultiContent.create({path: "./images", name: "image", type_id : 1 })
@@ -161,5 +247,11 @@ Comment.belongsTo(MultiContent,
 // Comment.findAll(
 //     {
 //         include: MultiContent
+//     }
+// ).then(res => console.log(JSON.stringify(res, null, 2)));
+
+// News.findAll(
+//     {
+//         include: Comment
 //     }
 // ).then(res => console.log(JSON.stringify(res, null, 2)));

@@ -83,20 +83,30 @@ foreign key(multi_content_id) references multi_content(multi_content_id)
  on update cascade
 );
 
+alter table comments 
+	drop foreign key comments_ibfk_1,
+    drop column multi_content_id,
+	add multi_content_id int,
+	add foreign key(multi_content_id) references multi_contents(multi_content_id) 
+	on delete cascade 
+	on update cascade;
+
+drop table comments_news;
 create table comments_news(
 comment_id int not null,
-page_id int not null,
-primary key(comment_id, page_id),
+news_id int not null,
+primary key(comment_id, news_id),
 
 foreign key(comment_id) references comments(comment_id) 
 on delete cascade 
 on update cascade,
 
-foreign key(page_id) references pages(page_id) 
+foreign key(news_id) references news(news_id) 
 on delete cascade 
 on update cascade
 );
 
+rename table multi_content_page to multi_content_pages;
 create table multi_content_page(
 `number` int not null,
 multi_content_id int not null,
