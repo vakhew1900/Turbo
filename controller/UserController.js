@@ -16,10 +16,15 @@ class UserController {
 
     async login(req, res) {
         try {
-            const user = await userService.getByNicknameAndPassword(req.body);
+            
+            const reqUser ={nickname : req.query.nickname, password: req.query.password};
+            const user = await userService.getByNicknameAndPassword(reqUser);
+            res.json(user);
         }   
         catch (e) {
             res.status(400).json(e.message);
         }
     }
 }
+
+module.exports = new UserController();

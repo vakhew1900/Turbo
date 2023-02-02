@@ -46,7 +46,7 @@ class UserService {
         )
 
         if (usr == null) {
-            throw new NullError("name or password is not right");
+            throw new Error("name or password is not right");
         }
 
         return usr;
