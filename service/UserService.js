@@ -4,7 +4,7 @@ const { Op } = require('sequelize')
 
 class UserService {
 
-    async registration(newUser) {
+    async create(newUser) {
 
         //const user = User.create({nickname: "user", password: "password", email: "bhfjxtymrhfcbdfz@gmail.com", avatar_id : 1, status_id : 1})
         const { nickname, password, email } = newUser;
