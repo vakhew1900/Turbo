@@ -199,11 +199,25 @@ const MultiContentPage = sequelize.define('multi_content_page',
 MultiContent.belongsToMany(Page, { through: MultiContentPage, foreignKey: 'multi_content_id' });
 Page.belongsToMany(MultiContent, { through: MultiContentPage, foreignKey: 'page_id' });
 
-Page.findAll(
-    {
-        include: MultiContent
-    }
-).then(res => console.log(JSON.stringify(res, null, 2)));
+
+const db = {
+    Type : Type,
+    MultiContent : MultiContent,
+    User: User,
+    Status : Status,
+    Page : Page,
+    Draft : Draft,
+    News : News,
+    Comment : Comment
+}
+
+module.exports = db;
+
+// Page.findAll(
+//     {
+//         include: MultiContent
+//     }
+// ).then(res => console.log(JSON.stringify(res, null, 2)));
 
 // const type = Type.create({name: "active"});
 // const multi_content = MultiContent.create({path: "./images", name: "image", type_id : 1 })
