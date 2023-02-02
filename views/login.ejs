@@ -32,18 +32,18 @@
 
             <section class="main-information-container">
                 <div class="main-information-block">
-                    <form action="" class="enter-form login-form">
+                    <form action="" method="GE" class="enter-form login-form">
                         <div class="form-name">
                             Вход
                         </div>
 
                         <div class="input-container">
-                            <input type="text" name="nickname" placeholder="Enter your nickname">
-                            <input type="password" name="password" placeholder="Enter your password" class = "password-input">
+                            <input id = "nickname-input"  type="text" name="nickname" placeholder="Enter your nickname">
+                            <input id = "password-input"  type="password" name="password" placeholder="Enter your password" class = "password-input">
                         </div>
 
                         <div class="manage-block">
-                            <input type="submit" value="Войти" />
+                            <input id = "button-input" type="submit" value="Войти" />
                             <a href="/register" id="registration-link">Зарегистрироваться</a>
                         </div>
 
@@ -58,6 +58,7 @@
     <script src="./script/draggable-card.js"></script>
     <!-- <script src="./script/slider.js"></script> -->
     <script src="./script/footer.js"></script>
+    <script type = "module" src="./script/login.js"></script>
 </body>
 
 </html>

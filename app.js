@@ -43,6 +43,7 @@ const startUp = () => {
     app.use(express.json());
     app.use(bodyparser.urlencoded({ extended: false }));
     app.use(express.static(__dirname + '/views'));
+    app.use('/script', express.static(__dirname + '/views/script'));
     app.use('/images', express.static(__dirname + '/images'));
     app.set('view engine', 'ejs');
     app.use('/api', userRouter)
