@@ -10,7 +10,7 @@ class UserController {
             res.json(user);
         }
         catch (e) {
-
+            res.status(400).json(e.message);
         }
     }
 

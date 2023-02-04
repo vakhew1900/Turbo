@@ -32,4 +32,12 @@ form.addEventListener('submit', async function (event) {
     console.log("User Login")
     console.log(result)
 
+
+    if(response.status == 200){
+        window.location.href = "/";
+    }
+    else {
+        alert(result);
+    }
+
 })
