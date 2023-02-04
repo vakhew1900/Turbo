@@ -58,9 +58,11 @@ form.addEventListener('submit', async function (event) {
 
 
     if(response.status == 200){
+        localStorage.setItem('token', result)
         window.location.href = "./";
     }
     else {
+        localStorage.removeItem('token');
         alert(result);
     }
 
