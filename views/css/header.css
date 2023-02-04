@@ -104,7 +104,8 @@ body{
 /* элементвы видимость которых зависит от авторизации пользователя */
 
 .create-article-button{
-    display: none;
+    /* display: none; */
+    font-size: 1.4rem;
 }
 
 .avatar-icon{

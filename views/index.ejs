@@ -15,7 +15,7 @@
         rel="stylesheet">
 
     <!-- стиль -->
-    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/main-information.css">
     <link rel="stylesheet" href="./css/footer.css">
@@ -29,7 +29,7 @@
 
         <div class="page-with-menu">
             <%- include('./menu-bar.ejs') %>
-            
+
                 <div class="page-content">
                     <section class="first-slide">
                         <div class="description-container">
@@ -175,10 +175,9 @@
                     <%- include('./footer.ejs') %>
                 </div>
         </div>
-        <script src="./script/menu-bar.js"></script>
+        <%- include('./script.ejs') %>
         <script src="./script/draggable-card.js"></script>
         <script src="./script/slider.js"></script>
-        <script src="./script/footer.js"></script>
 </body>
 
 </html>
