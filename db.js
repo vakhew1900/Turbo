@@ -208,7 +208,10 @@ const db = {
     Page : Page,
     Draft : Draft,
     News : News,
-    Comment : Comment
+    Comment : Comment,
+    NewsComments : new NewsComments(),
+    MultiContentPage : new MultiContentPage(),
+    sequelize : sequelize
 }
 
 module.exports = db;
