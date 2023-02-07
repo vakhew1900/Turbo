@@ -1,13 +1,13 @@
 const { Draft, Page,  MultiContentPage, sequelize} = require('../db');
-
+const PageService = require('./PageService')
 
 class DraftService {
 
     async create(html_content, user, multiContentArray) {
-        const page = await Page.create({ html_content: html_content, author_id: user.user_id });
+        
+        const page = await PageService.create(html_content, user, multiContentArray);
         const draft = await Draft.create({ draft_id: page.page_id });
 
-        this.createPageMultiContentConnection(page, multiContentArray);
         return draft;
     }
 
@@ -28,10 +28,10 @@ class DraftService {
 
 module.exports = new DraftService();
 
-const html_content = "jldfs";
-const multi_contentArray = [{multi_content_id: 1}];
-const user = {user_id : 3};
+// const html_content = "jldfs";
+// const multi_contentArray = [{multi_content_id: 1}];
+// const user = {user_id : 3};
 
-const tmp = new DraftService();
+// const tmp = new DraftService();
 
- tmp.create(html_content, user, multi_contentArray);
+//  tmp.create(html_content, user, multi_contentArray);
