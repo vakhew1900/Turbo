@@ -3,14 +3,16 @@ const draftService = require('../service/DraftService')
 
 class DraftController{
 
-    async create(res, req){
-
+    async create(req, res){
+        console.log(req.body)
         try{
             const {multiContentArray, html_content} = req.body;
             const user = req.user;
-            await draftService.create(html_content, user, multiContentArray);
+            console.log(multiContentArray, html_content, user);
+            const draft = await draftService.create(html_content, user, multiContentArray);
+            res.send(draft);
         }
-        catch{
+        catch(e){
             res.status(400).json(e.message);
         }
     }

@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const userRouter = require('./router/UserRouter');
+const draftRouter = require('./router/DraftRouter')
+const authMiddlewaree = require('./middleware/authMiddlewaree')
 
 const PORT = 4000;
 const app = express();
@@ -40,16 +42,20 @@ const bodyparser = require('body-parser')
 const startUp = () => {
 
     app.use(cors())
+   
     app.use(express.json());
     app.use(bodyparser.urlencoded({ extended: false }));
+    
     app.use(express.static(__dirname + '/views'));
     app.use('/script', express.static(__dirname + '/views/script'));
     app.use('/images', express.static(__dirname + '/images'));
+    
     app.set('view engine', 'ejs');
+   
     app.use('/api', userRouter)
+    app.use('/api', draftRouter)
 
     app.listen(PORT, () => console.log(`server start on ${PORT} port`));
-    // console.log(__dirname)
 }
 
 
@@ -76,15 +82,19 @@ app.get('/redactor', (req, res) => {
 
 
 //  загрузка изобржаний
-app.post('/api/save_image', upload.any(), async (req, res) => {
+
+const MultiContentService = require('./service/MultiContentService')
+app.post('/api/save_image',authMiddlewaree, upload.any(), async (req, res) => {
 
     console.log('Body- ' + JSON.stringify(req.body));
     console.log(req.files)
+    let path = "/images";
     let filenameArray = new Array()
-
     for (let file of req.files) {
-        filenameArray.push(file.filename)
+        const image = await MultiContentService.create(path, file.filename);
+
+        filenameArray.push(image);
     }
 
-    res.send(filenameArray);
+    res.json(filenameArray);
 })  
