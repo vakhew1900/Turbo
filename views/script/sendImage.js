@@ -67,7 +67,8 @@ function createSendHtml(filenames) {
   for (let i = 0; i < filenames.length; i++) {
 
     images[i].src = pref + filenames[i].path + "/" + filenames[i].name;
-    images[i].setAttribute("image-id", filenames[i].multi_content_id)
+    console.log(filenames[i].content_id);
+    images[i].setAttribute("image-id", filenames[i].content_id)
   }
 
   console.log(redactorBlock)
@@ -108,7 +109,7 @@ function parseRedactorBlock(redactorBlock) {
     const image_id = image.getAttribute('image-id');
     console.log(image_id);
     const multi_content = {
-      multi_content_id: image_id
+      content_id: image_id
     }
     multiContentArray.push(multi_content);
   }

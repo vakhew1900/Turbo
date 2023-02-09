@@ -1,25 +1,26 @@
+drop database turbo;
 create database turbo;
 use turbo;
--- drop database turbo;
+
 
 create table `types`(
 type_id int not null primary key auto_increment,
 `name` varchar(255) not null
 );
 
-rename table multi_content to multi_contents;
-create table multi_content(
-multi_content_id int not null primary key auto_increment,
-`path` varchar(300) not null,
-`name` varchar(255) not null,
+
+create table contents(
+content_id int not null primary key auto_increment,
+`text` text,
+`path` varchar(300),
+`name` varchar(255),
 type_id int not null,
 foreign key(type_id) references `types`(type_id) 
 on delete cascade
 on update cascade
 );
 
-rename table `status` to statuses;
-create table `status`(
+create table `statuses`(
 status_id int not null primary key auto_increment,
 `name` varchar(300) not null
 );
@@ -32,18 +33,17 @@ nickname varchar(25) not null unique,
 rating int not null default 0,
 avatar_id int not null,
 status_id int not null,
-foreign key(status_id) references `status`(status_id)
+foreign key(status_id) references `statuses`(status_id)
  on delete cascade
  on update cascade,
  
- foreign key(avatar_id) references multi_content(multi_content_id) 
+ foreign key(avatar_id) references contents(content_id) 
  on delete cascade 
  on update cascade
 );
 
 create table `pages`(
 page_id int not null primary key auto_increment,
-html_content text not null,
 author_id int not null,
 foreign key(author_id) references users(user_id)
  on delete cascade
@@ -67,27 +67,26 @@ create table news(
   on update cascade
 );
 
-alter table news drop column main_image_url;
 
 alter table news add column main_image_id int not null,
-				add foreign key(main_image_id) references multi_contents(multi_content_id)
+				add foreign key(main_image_id) references contents(content_id)
                 on delete cascade
                 on update cascade;
 
 create table comments(
 comment_id int not null primary key auto_increment,
 text_content varchar(600) not null,
-multi_content_id int not null,
-foreign key(multi_content_id) references multi_content(multi_content_id) 
+content_id int not null,
+foreign key(content_id) references contents(content_id) 
  on delete cascade 
  on update cascade
 );
 
 alter table comments 
 	drop foreign key comments_ibfk_1,
-    drop column multi_content_id,
-	add multi_content_id int,
-	add foreign key(multi_content_id) references multi_contents(multi_content_id) 
+    drop column content_id,
+	add content_id int,
+	add foreign key(content_id) references contents(content_id) 
 	on delete cascade 
 	on update cascade;
 
@@ -106,17 +105,16 @@ on delete cascade
 on update cascade
 );
 
-rename table multi_content_page to multi_content_pages;
-create table multi_content_page(
+create table content_pages(
 `number` int not null,
-multi_content_id int not null,
+content_id int not null,
 page_id int not null,
-primary key(page_id, multi_content_id, `number`),
+primary key(page_id, content_id, `number`),
 foreign key(page_id) references pages(page_id) 
 on delete cascade 
 on update cascade,
 
-foreign key(multi_content_id) references multi_content(multi_content_id) 
+foreign key(content_id) references contents(content_id) 
  on delete cascade 
  on update cascade
 );

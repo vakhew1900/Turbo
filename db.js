@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
 
 
 const Type = require('./model/Type')(sequelize);
-const MultiContent = require('./model/MultiContent')(sequelize);
+const Content = require('./model/Content')(sequelize);
 const User = require('./model/User')(sequelize);
 const Status = require('./model/Status')(sequelize);
 const Page = require('./model/Page')(sequelize);
@@ -23,13 +23,13 @@ const Comment = require('./model/Comment')(sequelize);
 
 // Type-MultiContent
 
-Type.hasMany(MultiContent,
+Type.hasMany(Content,
     {
         foreignKey: 'type_id'
     }
 );
 
-MultiContent.belongsTo(Type,
+Content.belongsTo(Type,
     {
         foreignKey: 'type_id'
     }
@@ -65,13 +65,13 @@ Page.belongsTo(User,
 
 
 // MultiContent User
-MultiContent.hasOne(User,
+Content.hasOne(User,
     {
         foreignKey: "avatar_id"
     }
 );
 
-User.belongsTo(MultiContent,
+User.belongsTo(Content,
     {
         foreignKey: "avatar_id"
     }
@@ -105,15 +105,15 @@ News.belongsTo(Page,
 );
 
 // Comment-MultiContent
-MultiContent.hasOne(Comment,
+Content.hasOne(Comment,
     {
-        foreignKey: "multi_content_id"
+        foreignKey: "content_id"
     }
 );
 
-Comment.belongsTo(MultiContent,
+Comment.belongsTo(Content,
     {
-        foreignKey: "multi_content_id"
+        foreignKey: "content_id"
     }
 );
 
@@ -156,14 +156,15 @@ News.belongsToMany(Comment, { through: NewsComments, foreignKey: 'news_id' });
 
 //MultiContent-Page
 
-const MultiContentPage = sequelize.define('multi_content_page',
+const ContentPage = sequelize.define('content_page',
     {
-        multi_content_id: {
+        
+        content_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: MultiContent,
-                key: 'multi_content_id'
+                model: Content,
+                key: 'content_id'
             }
 
         },
@@ -192,17 +193,17 @@ const MultiContentPage = sequelize.define('multi_content_page',
     },
 
     {
-        tableName: 'multi_content_page'
+        tableName: 'content_page'
     },
 );
 
-MultiContent.belongsToMany(Page, { through: MultiContentPage, foreignKey: 'multi_content_id' });
-Page.belongsToMany(MultiContent, { through: MultiContentPage, foreignKey: 'page_id' });
+Content.belongsToMany(Page, { through: ContentPage, foreignKey: 'content_id' });
+Page.belongsToMany(Content, { through: ContentPage, foreignKey: 'page_id' });
 
 
 const db = {
     Type : Type,
-    MultiContent : MultiContent,
+    Content : Content,
     User: User,
     Status : Status,
     Page : Page,
@@ -210,28 +211,24 @@ const db = {
     News : News,
     Comment : Comment,
     NewsComments : new NewsComments(),
-    MultiContentPage : new MultiContentPage(),
+    ContentPage : new ContentPage(),
     sequelize : sequelize
 }
 
 module.exports = db;
 
-// Page.findAll(
-//     {
-//         include: MultiContent
-//     }
-// ).then(res => console.log(JSON.stringify(res, null, 2)));
+
 
 // const type = Type.create({name: "active"});
-// const multi_content = MultiContent.create({path: "./images", name: "image", type_id : 1 })
+// const content = Content.create({path: "./images", name: "image", type_id : 1 })
 // const status = Status.create({name : "active"});
-// const user = User.create({nickname: "user", password: "password", email: "bhfjxtymrhfcbdfz@gmail.com", avatar_id : 1, status_id : 1})
-// const page = Page.create({html_content: "sdfkjds", author_id : 3});
+// // const user = User.create({nickname: "user", password: "password", email: "bhfjxtymrhfcbdfz@gmail.com", avatar_id : 1, status_id : 1})
+// const page = Page.create({ author_id : 1});
 // const draft = Draft.create({draft_id: 2});
 // const news = News.create({news_id: 2, title :"title", subtitle : "subtitle", main_image_id : 1 });
-// const comment = Comment.create({text_content: "2222", multi_content_id : 1});
+// const comment = Comment.create({text_content: "2222", content_id : 1});
 
-// MultiContent.findAll(
+// Content.findAll(
 //     {
 //         include : Type
 //     }
@@ -239,7 +236,7 @@ module.exports = db;
 
 // User.findAll(
 //     {
-//         include: [Status, MultiContent]
+//         include: [Status, Content]
 //     }
 // ).then(res => console.log(JSON.stringify(res, null, 2)));
 
@@ -263,12 +260,19 @@ module.exports = db;
 
 // Comment.findAll(
 //     {
-//         include: MultiContent
+//         include: Content
 //     }
 // ).then(res => console.log(JSON.stringify(res, null, 2)));
 
 // News.findAll(
 //     {
 //         include: Comment
+//     }
+// ).then(res => console.log(JSON.stringify(res, null, 2)));
+
+
+// Page.findAll(
+//     {
+//         include: Content
 //     }
 // ).then(res => console.log(JSON.stringify(res, null, 2)));

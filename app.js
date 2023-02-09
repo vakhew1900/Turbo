@@ -83,7 +83,7 @@ app.get('/redactor', (req, res) => {
 
 //  загрузка изобржаний
 
-const MultiContentService = require('./service/MultiContentService')
+const ContentService = require('./service/ContentService')
 app.post('/api/save_image',authMiddlewaree, upload.any(), async (req, res) => {
 
     console.log('Body- ' + JSON.stringify(req.body));
@@ -91,7 +91,7 @@ app.post('/api/save_image',authMiddlewaree, upload.any(), async (req, res) => {
     let path = "/images";
     let filenameArray = new Array()
     for (let file of req.files) {
-        const image = await MultiContentService.create(path, file.filename);
+        const image = await ContentService.create(path, file.filename);
 
         filenameArray.push(image);
     }

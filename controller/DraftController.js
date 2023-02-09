@@ -9,7 +9,7 @@ class DraftController{
             const {multiContentArray, html_content} = req.body;
             const user = req.user;
             console.log(multiContentArray, html_content, user);
-            const draft = await draftService.create(html_content, user, multiContentArray);
+            const draft = await draftService.create(user, multiContentArray);
             res.send(draft);
         }
         catch(e){

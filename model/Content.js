@@ -2,14 +2,18 @@ const DataTypes = require('sequelize')
 
 module.exports = (sequelize) => {
     return sequelize.define(
-     'multi_content',
+     'contents',
      {
-        multi_content_id: {
+        content_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            field: 'multi_content_id',
+            field: 'content_id',
             autoIncrement: true,
             primaryKey: true
+        },
+
+        text : {
+            type : DataTypes.TEXT
         },
 
         path: {

@@ -12,10 +12,7 @@ module.exports = (sequelize) => {
                 primaryKey: true
             },
 
-            html_content: {
-                type: DataTypes.TEXT,
-                allowNull: false
-            },
+        
 
             author_id : {
                 type: DataTypes.INTEGER,

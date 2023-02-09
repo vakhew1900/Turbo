@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
             allowNull: false
           },
 
-          multi_content_id : {
+          content_id : {
             type: DataTypes.INTEGER,
           }
 
