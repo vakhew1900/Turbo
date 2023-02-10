@@ -43,6 +43,7 @@ document.onpaste = function (pasteEvent) {
 const createTextArea = () => {
     const textarea = document.createElement('textarea');
     textarea.placeholder = "Написать";
+    textarea.classList.add('content-unit');
     return textarea;
 }
 
@@ -60,6 +61,7 @@ const createImg = (src) =>{
     let img = document.createElement('img');
     console.log(img)
     img.src = src;
+    img.classList.add('content-unit');
     return img;
 }
 

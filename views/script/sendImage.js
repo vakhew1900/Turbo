@@ -1,46 +1,61 @@
-const { response } = require("express");
 
 
-function findAllImg() {
-  let links = Array.from(document.querySelectorAll('.main-image-container > img')).map(x => { return x.src });
-  //  console.log(links)
+function convertLinkToBlob(element) {
+  
+  const fileData = element.src;
+  console.log(element)
+  let parts, type, base64Data;
+  console.log(fileData)
+  parts = fileData.split(',');
+  type = parts[0];
+  base64Data = parts[1];
+  type = type.split(';')[0].split(':')[1];
+  console.log(base64Data + ' ' + type);
+  let blob = b64toBlob(base64Data, type);
 
-  console.log(links);
-
-
-  blobArray = Array()
-  for (let fileData of links) {
-    let parts, type, base64Data;
-    parts = fileData.split(',');
-    type = parts[0];
-    base64Data = parts[1];
-    type = type.split(';')[0].split(':')[1];
-    console.log(base64Data + ' ' + type);
-    let blob = b64toBlob(base64Data, type)
-    blobArray.push(blob)
-  }
-
-
-  return blobArray;
+  return blob;
 }
 
 async function sendDraft() {
 
-  blobArray = findAllImg();
+ 
 
   let form = new FormData();
 
+  
+  const contentUnits = document.querySelectorAll('.content-unit');
+
+  let textArray = [];
+  let multiContentNumber = [];
   let cur = 0;
-  for (let blob of blobArray) {
-    form.append('image', blob);
-    console.log('1111')
+  let images = []
+  for(let contentUnit of contentUnits){
+      console.log(contentUnit.nodeType)
+      if (contentUnit.nodeName == 'TEXTAREA'){
+        const content = {
+          text : contentUnit.value,
+          number : cur
+        }
+        textArray.push(content)
+      }
+
+      else {
+        const content = {
+          number : cur
+        }
+
+        images.push(convertLinkToBlob(contentUnit));
+        multiContentNumber.push(content);
+      }
+
+      cur++;
   }
 
 
+  form.append('text', JSON.stringify(textArray));
+  form.append('multiContentNumber', JSON.stringify(multiContentNumber));
+  images.map(x => {form.append('image', x);})
   console.log(form.get('image'));
-  form.append('hui', 1);
-  // console.log(form.get('image'))
-
   const url = pref + '/api/save_image'
 
   let headers = {
@@ -88,14 +103,14 @@ async function fetchDraft(redactorBlock) {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
   }
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(body)
-  })
+  // const response = await fetch(url, {
+  //   method: 'POST',
+  //   headers: headers,
+  //   body: JSON.stringify(body)
+  // })
 
-  const result = await response.json();
-  console.log(result);
+  // const result = await response.json();
+  // console.log(result);
 }
 
 function parseRedactorBlock(redactorBlock) {
