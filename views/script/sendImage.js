@@ -56,7 +56,7 @@ async function sendDraft() {
   form.append('multiContentNumber', JSON.stringify(multiContentNumber));
   images.map(x => {form.append('image', x);})
   console.log(form.get('image'));
-  const url = pref + '/api/save_image'
+  const url = pref + '/api/drafts'
 
   let headers = {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -89,47 +89,6 @@ function createSendHtml(filenames) {
   console.log(redactorBlock)
 
   return redactorBlock;
-}
-
-
-async function fetchDraft(redactorBlock) {
-  const url = pref + "/api/drafts";
-  const body = parseRedactorBlock(redactorBlock);
-  console.log(body);
-
-  
-  let headers = {
-    'Content-Type': 'application/json;charset=utf-8',
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  }
-
-  // const response = await fetch(url, {
-  //   method: 'POST',
-  //   headers: headers,
-  //   body: JSON.stringify(body)
-  // })
-
-  // const result = await response.json();
-  // console.log(result);
-}
-
-function parseRedactorBlock(redactorBlock) {
-
-  const html_content = redactorBlock.outerHTML;
-  const images = redactorBlock.querySelectorAll('.main-image-container>img');
-
-  let multiContentArray = [];
-
-  for (let image of images) {
-    const image_id = image.getAttribute('image-id');
-    console.log(image_id);
-    const multi_content = {
-      content_id: image_id
-    }
-    multiContentArray.push(multi_content);
-  }
-
-  return { html_content, multiContentArray };
 }
 
 

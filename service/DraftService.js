@@ -3,9 +3,9 @@ const PageService = require('./PageService')
 
 class DraftService {
 
-    async create(user, multiContentArray) {
+    async create(user, multiContentArray, textArr) {
 
-        const page = await PageService.create(user, multiContentArray);
+        const page = await PageService.create(user, multiContentArray, textArr);
         const draft = await Draft.create({ draft_id: page.page_id });
 
         return draft;
@@ -14,16 +14,6 @@ class DraftService {
     // async update(page_id, html_content, user, multi_contentArray){
 
     // }
-
-
-    async createPageMultiContentConnection(page, multiContentArray) {
-
-        for (let i = 0; i < multiContentArray.length; i++) {
-            const queryString = `insert into multi_content_pages(\`number\`, multi_content_id, page_id) 
-            values(${i}, ${multiContentArray[i].content_id}, ${page.page_id});`
-            sequelize.query(queryString);
-        }
-    }
 }
 
 module.exports = new DraftService();

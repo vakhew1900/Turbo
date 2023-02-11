@@ -18,12 +18,10 @@ module.exports = (sequelize) => {
 
         path: {
             type: DataTypes.STRING(300),
-            allowNull: false
         },
 
         name: {
-            type: DataTypes.STRING(255),
-            allowNull: false   
+            type: DataTypes.STRING(255),  
         },
 
         type_id: {
