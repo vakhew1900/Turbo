@@ -1,7 +1,7 @@
 
 
 function convertLinkToBlob(element) {
-  
+
   const fileData = element.src;
   console.log(element)
   let parts, type, base64Data;
@@ -16,46 +16,52 @@ function convertLinkToBlob(element) {
   return blob;
 }
 
-async function sendDraft() {
 
- 
+function createFormData() {
 
   let form = new FormData();
 
-  
+
   const contentUnits = document.querySelectorAll('.content-unit');
 
   let textArray = [];
   let multiContentNumber = [];
   let cur = 0;
   let images = []
-  for(let contentUnit of contentUnits){
-      console.log(contentUnit.nodeType)
-      if (contentUnit.nodeName == 'TEXTAREA'){
-        const content = {
-          text : contentUnit.value,
-          number : cur
-        }
-        textArray.push(content)
+  for (let contentUnit of contentUnits) {
+    console.log(contentUnit.nodeType)
+    if (contentUnit.nodeName == 'TEXTAREA') {
+      const content = {
+        text: contentUnit.value,
+        number: cur
+      }
+      textArray.push(content)
+    }
+
+    else {
+      const content = {
+        number: cur
       }
 
-      else {
-        const content = {
-          number : cur
-        }
+      images.push(convertLinkToBlob(contentUnit));
+      multiContentNumber.push(content);
+    }
 
-        images.push(convertLinkToBlob(contentUnit));
-        multiContentNumber.push(content);
-      }
-
-      cur++;
+    cur++;
   }
 
 
   form.append('text', JSON.stringify(textArray));
   form.append('multiContentNumber', JSON.stringify(multiContentNumber));
-  images.map(x => {form.append('image', x);})
+  images.map(x => { form.append('image', x); })
   console.log(form.get('image'));
+
+  return form;
+}
+
+async function sendDraft() {
+
+  const form = createFormData();
   const url = pref + '/api/drafts'
 
   let headers = {
