@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const userRouter = require('./router/UserRouter');
-const draftRouter = require('./router/DraftRouter')
+const draftRouter = require('./router/DraftRouter');
+const newsRouter = require('./router/NewsRouter');
 const authMiddlewaree = require('./middleware/authMiddlewaree')
 const upload = require('./file_onloader')
+const ContentService = require('./service/ContentService');
 
 const PORT = 4000;
 const app = express();
@@ -28,6 +30,7 @@ const startUp = () => {
    
     app.use('/api', userRouter)
     app.use('/api', draftRouter)
+    app.use('/api', newsRouter)
 
     app.listen(PORT, () => console.log(`server start on ${PORT} port`));
 }
@@ -56,9 +59,6 @@ app.get('/redactor', (req, res) => {
 
 
 //  загрузка изобржаний
-
-const ContentService = require('./service/ContentService')
-
 
 app.post('/api/save_image',authMiddlewaree, upload.any(), async (req, res) => {
 

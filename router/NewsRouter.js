@@ -5,6 +5,6 @@ const onload = require('../file_onloader')
 
 const newsRouter = new Router();
 
-newsRouter.post('/drafts',authMiddlewaree, onload.any(), NewsController.create);
+newsRouter.post('/news',authMiddlewaree, onload.any(), NewsController.create);
 
 module.exports = newsRouter;

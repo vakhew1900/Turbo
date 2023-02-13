@@ -76,9 +76,29 @@ async function sendDraft() {
 
   const filenames = await res.json();
   console.log(filenames)
-  const redactorBlock = createSendHtml(filenames)
-  await fetchDraft(redactorBlock)
 }
+
+
+async function sendNews() {
+
+  const form = createFormData();
+  const url = pref + '/api/news'
+
+  let headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  }
+
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: headers,
+    body: form
+  })
+
+  const filenames = await res.json();
+  console.log(filenames)
+}
+
+
 
 
 function createSendHtml(filenames) {
