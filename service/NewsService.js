@@ -11,7 +11,7 @@ class NewsService {
         console.log(page)
         const title = await this.findTitle(page);
         const main_image = await this.findMainImage(page);
-        const news = await News.create({ news_id: page.page_id, title : title.text, main_image_id: main_image.content_id });
+        const news = await News.create({ news_id: page.page_id, title: title.text, main_image_id: main_image.content_id });
 
         return news;
     }
@@ -86,8 +86,35 @@ class NewsService {
 
     }
 
+
+    async findById(id) {
+
+        const news = await News.findOne({
+          
+            where: {
+                news_id: {
+                    [Op.eq]: id
+                }
+            }
+
+        }
+        )
+
+        console.log('adasdsa')
+        console.log(JSON.stringify(news, null, 2));
+        
+        const page = await news.getPage();
+        const contents = await page.getContents();
+        console.log(JSON.stringify(page, null,2))
+        console.log(JSON.stringify(contents, null, 2));
+
+        return {news, page, contents};
+    }
 }
 
-module.exports = new NewsService();
+const newsService = new NewsService;
 
+newsService.findById(22)
+
+module.exports = new NewsService();
 

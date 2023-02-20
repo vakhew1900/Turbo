@@ -18,10 +18,3 @@ class DraftService {
 
 module.exports = new DraftService();
 
-// const html_content = "jldfs";
-// const multi_contentArray = [{multi_content_id: 1}];
-// const user = {user_id : 3};
-
-// const tmp = new DraftService();
-
-//  tmp.create(html_content, user, multi_contentArray);
