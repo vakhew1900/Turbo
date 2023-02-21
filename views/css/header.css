@@ -2,28 +2,29 @@
     margin: 0px;
     padding: 0px;
     /* border: 0px; */
-  }
+}
 
-:root{
+:root {
     --main-color: #041E27;
     --font-color: #FFFFFF;
     --button-color: #FFFAFA;
-    --button-hover-color : #f3e6e6;
-    --coef : 1.15;
+    --button-hover-color: #f3e6e6;
+    --coef: 1.15;
     --button-height: 45px
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
     color: var(--font-color);
 }
 
-.menu-logo{
+.menu-logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.header-site{
+
+.header-site {
     display: flex;
     position: fixed;
     left: 0;
@@ -34,20 +35,20 @@ body{
     width: 100%;
     background-color: var(--main-color);
     z-index: 1;
-     /* border-bottom: solid #FFFFFF; */
+    /* border-bottom: solid #FFFFFF; */
 }
 
-.menu-logo{
-   margin-left: 50px; 
+.menu-logo {
+    margin-left: 50px;
 }
 
-.nav-header{
+.nav-header {
     margin-right: 10%;
 }
 
-.logo-text{
+.logo-text {
     font-family: 'Inter', sans-serif;
-    font-style: normal ;
+    font-style: normal;
     font-weight: 600;
     font-size: 40px;
     line-height: 61px;
@@ -57,7 +58,7 @@ body{
 }
 
 
-.header-button{
+.header-button {
     background-color: var(--button-color);
     height: var(--button-height);
     width: 135px;
@@ -71,31 +72,31 @@ body{
 }
 
 
-.header-button:hover{
+.header-button:hover {
     background-color: var(--button-hover-color);
     cursor: pointer;
-    box-shadow: 7px 6px 6px 1px ;
+    box-shadow: 7px 6px 6px 1px;
     transition: .7s;
 }
 
-.header-button:active{
+.header-button:active {
     border: solid;
     border: var(--main-color);
 }
 
-.vector-img{
+.vector-img {
     height: 25px;
     width: 30px;
 }
 
 
-.vector-img:hover{
+.vector-img:hover {
     scale: 1.1;
     cursor: pointer;
 }
 
-@media (max-width: 1200px){
-    .logo-text{
+@media (max-width: 1200px) {
+    .logo-text {
         visibility: hidden;
         display: none;
     }
@@ -103,29 +104,29 @@ body{
 
 /* элементвы видимость которых зависит от авторизации пользователя */
 
-.create-article-button{
+.create-article-button {
     /* display: none; */
     font-size: 1.4rem;
 }
 
-.avatar-icon{
+.avatar-icon {
     border-radius: 100%;
     height: var(--button-height);
     width: var(--button-height);
     background-image: url(/image/jpg/1.jpg);
-    background-size: cover;    
+    background-size: cover;
 }
 
-.avatar-icon:hover{
+.avatar-icon:hover {
     border: 3px solid var(--button-color);
 }
 
-.nav-header{
+.nav-header {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.nav-header>*{
+.nav-header>* {
     margin-left: 30px;
 }

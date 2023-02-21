@@ -15,18 +15,18 @@
         rel="stylesheet">
 
     <!-- стиль -->
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/main-information.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/menu-bar.css">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/main-information.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/menu-bar.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
    
     <%- include('./header.ejs') %>
     <div class="page-with-menu">
-        <%- include('menu-bar.ejs')  %> 
+        <%- include('./menu-bar.ejs')  %> 
 
         <div class="page-content">
 
@@ -55,8 +55,8 @@
         </div>
     </div>
     <%- include('./script.ejs') %>
-    <script src="./script/draggable-card.js"></script>
-    <script type = "module" src="./script/login.js"></script>
+    <script src="/script/draggable-card.js"></script>
+    <script type = "module" src="/script/login.js"></script>
 </body>
 
 </html>

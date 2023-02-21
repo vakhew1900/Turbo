@@ -13,6 +13,14 @@ class NewsController {
     catch(e) {
         res.status(400).json(e.message);
     }
+
+
+    async getNewsById(req, res){
+        const id = req.params.id;
+        const {news, page, contents} = await newsService.findById(id);
+        console.log(JSON.stringify(news, null, 2));
+        res.render('news');
+    }
 }
 
 

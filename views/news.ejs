@@ -15,103 +15,39 @@
         rel="stylesheet">
 
     <!-- стиль -->
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/main-information.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/menu-bar.css">
-    <link rel="stylesheet" href="./css/news.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/main-information.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/menu-bar.css">
+    <!-- <link rel="stylesheet" href="/css/news.css"> -->
+    <link rel="stylesheet" href="/css/redactor.css">
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
 </head>
 
 <body>
-    
+
     <%- include('./header.ejs') %>
 
-    <div class="page-with-menu">
-        
-        <%- include('./menu-bar.ejs') %>
+        <div class="page-with-menu">
 
-        <div class="page-content">
+            <%- include('./menu-bar.ejs') %>
 
-            <section class="main-information-container">
-                <div class="main-information-block">
-                    <div class="date">29 декабря</div>
-                
-                    <div class="news-container">
-                        
-                        <div class="news-block">
-                            <div class="news-block-container">
-                            <div class="news-name">Заголовок новости может иметь быть на нескольких строчках</div>
-                             <div class="news-description">Lorem ipsum dolor sit amet consectetur adipisicing </div>
-                             <div class="news-author">Автор статьи</div>
-                            </div>
+                <div class="page-content">
+
+                    <section class="main-information-container" style="background-color: aqua;">
+                        <div class="main-information-block">
+                            
                         </div>
+                    </section>
 
-                        <div class="news-block">
-                            <div class="news-block-container">
-                            <div class="news-name">Новость</div>
-                             <div class="news-description">Lorem ipsum dolor sit amet consectetur adipisicing </div>
-                             <div class="news-author">Автор</div>
-                            </div>
-                        </div>
+                    <%- include('./footer.ejs') %>
 
-                        <div class="news-block">
-                            <div class="news-block-container">
-                            <div class="news-name">Новость</div>
-                             <div class="news-description">Lorem ipsum dolor sit amet consectetur adipisicing </div>
-                             <div class="news-author">Автор</div>
-                            </div>
-                        </div>
-
-                        <div class="news-block">
-                            <div class="news-block-container">
-                            <div class="news-name">Новость</div>
-                             <div class="news-description">Lorem ipsum dolor sit amet consectetur adipisicing </div>
-                             <div class="news-author">Автор</div>
-                            </div>
-                        </div>
-
-                        <div class="news-block">
-                            <div class="news-block-container">
-                            <div class="news-name">Новость</div>
-                             <div class="news-description">Lorem ipsum dolor sit amet consectetur adipisicing </div>
-                             <div class="news-author">Автор</div>
-                            </div>
-                        </div>
-
-                        <div class="news-block">
-                            <div class="news-block-container">
-                            <div class="news-name">Новость</div>
-                             <div class="news-description">Lorem ipsum dolor sit amet consectetur adipisicing </div>
-                             <div class="news-author">Автор</div>
-                            </div>
-                        </div>
-
-                        <div class="news-block">
-                            <div class="news-block-container">
-                            <div class="news-name">Новость</div>
-                             <div class="news-description">Lorem ipsum dolor sit amet consectetur adipisicing </div>
-                             <div class="news-author">Автор</div>
-                            </div>
-                        </div>
-
-                        <div class="news-block">
-                            <div class="news-block-container">
-                            <div class="news-name">Новость</div>
-                             <div class="news-description">Lorem ipsum dolor sit amet consectetur adipisicing </div>
-                             <div class="news-author">Автор</div>
-                            </div>
-                        </div>
-
-                    
-                    </div>                
                 </div>
-            </section>
-
-            <%- include('./footer.ejs') %>
-            
         </div>
-    </div>
-    <%- include('./script.ejs') %>
+        <%- include('./script.ejs') %>
+            <script src="/script/paste.js"></script>
+            <script src="/script/sendImage.js"></script>
 </body>
 
 </html>
