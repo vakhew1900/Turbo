@@ -1,4 +1,4 @@
 <div class="text-container">
     <% console.log(content.text) %>
-    <%- content.text %>
+    <%- content.text.replace(/\t/g, '<pre>   </pre>') %> 
 </div>

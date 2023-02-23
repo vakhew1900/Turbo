@@ -14,6 +14,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@100&display=swap"
         rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Oswald:wght@500&family=Roboto:wght@100&display=swap"
+        rel="stylesheet">
+
+    <!-- adding google fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet"> -->
+
+
     <!-- стиль -->
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/main-information.css">
@@ -39,33 +49,48 @@
                     <section class="main-information-container" style="background-color: aqua;">
 
                         <!-- <div class="main-information-wrapper"> -->
-                            <div class="main-information-block article-body">
+                        <div class="main-information-block article-block">
 
-                              <div class="author-block-wrapper">
-                                <div class="author-field">
-                                    <%= author.nickname %>
+                            <div class="author-block-wrapper">
+                                <div class="author-wrapper">
+
+                                    
+                                    <div class="author-logo">
+
+                                    </div>
+
+                                    <div class="author-field">
+                                        <b>
+                                            <%= author.nickname %>
+                                        </b>
+                                    </div>
+
+                                    <div class="news-date">
+                                        22 марта 2023
+                                    </div>
+
                                 </div>
-                              </div>  
+                            </div>
 
-                                <% contents.forEach((content)=> { %>
+                            <% contents.forEach((content)=> { %>
 
-                                    <% if(content.type=='text' ){ %>
-                                        <% console.log(content.type + "adl" ) %>
+                                <% if(content.type=='text' ){ %>
+                                    <% console.log(content.type + "adl" ) %>
 
                                         <%- include('./module-ejs/text-container.ejs', {content: content}); %>
-                                        <% }%>
+                                            <% }%>
 
-                                    <% if(content.type=='image' ){ %>
-                                        <% console.log(content.type + "adl" ) %>
+                                                <% if(content.type=='image' ){ %>
+                                                    <% console.log(content.type + "adl" ) %>
 
-                                        <%- include('./module-ejs/main-image-container.ejs',
-                                            {content: content}); %>
-                                    <% }%>
+                                                        <%- include('./module-ejs/main-image-container.ejs', {content:
+                                                            content}); %>
+                                                            <% }%>
 
-                                 <% }); %>
+                                                                <% }); %>
 
 
-                            </div>
+                        </div>
                         <!-- </div> -->
                     </section>
 
