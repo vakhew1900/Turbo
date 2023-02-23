@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/css/main-information.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/menu-bar.css">
-    <!-- <link rel="stylesheet" href="/css/news.css"> -->
+    <link rel="stylesheet" href="/css/news.css">
     <link rel="stylesheet" href="/css/redactor.css">
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
@@ -38,10 +38,14 @@
                     <section class="main-information-container" style="background-color: aqua;">
 
                         <!-- <div class="main-information-wrapper"> -->
-                            <div class="author-field">
-                                <%= author.nickname %>
-                            </div>
                             <div class="main-information-block">
+
+                              <div class="author-block-wrapper">
+                                <div class="author-field">
+                                    <%= author.nickname %>
+                                </div>
+                              </div>  
+
                                 <% contents.forEach((content)=> { %>
 
                                     <% if(content.type=='text' ){ %>
@@ -57,7 +61,7 @@
                                             {content: content}); %>
                                     <% }%>
 
-                                            <% }); %>
+                                 <% }); %>
 
 
                             </div>
