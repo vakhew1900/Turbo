@@ -63,7 +63,7 @@ body {
     height: var(--button-height);
     width: 135px;
     box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
+    border-radius: 10px;
 
     /* текст */
     font-size: 25px;

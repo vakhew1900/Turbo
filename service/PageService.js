@@ -1,6 +1,7 @@
 const { Page, sequelize, Content} = require('../db');
 const ContentService = require('./ContentService');
 const TypeService = require('./TypeService');
+const nl2br  = require('nl2br');
 
 class PageService {
 
@@ -14,7 +15,7 @@ class PageService {
         let type = await TypeService.findByName("text")
         for (let textUnit of text){
             console.log(textUnit)
-            const content = await Content.create({text : textUnit.text, type_id : type.type_id});
+            const content = await Content.create({text : nl2br(textUnit.text), type_id : type.type_id});
 
             const obj = {
                 content_id : content.content_id,

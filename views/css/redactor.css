@@ -1,4 +1,4 @@
-.redactor-block{
+/* .redactor-block{
     min-height: 100vh;
     width: 100%;
     border-radius: 10px;
@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 .main-information-block {
     max-width: 65%;
@@ -43,14 +43,3 @@ textarea{
 }
 
 
-@media(max-width: 933px) {
-    .redactor-block {
-        max-width: 80%;
-    }
-}
-
-@media(max-width: 767px){
-    .redactor-block{
-        max-width: 95%;
-    }
-}

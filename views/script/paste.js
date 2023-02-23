@@ -38,6 +38,9 @@ document.onpaste = function (pasteEvent) {
 
         reader.readAsDataURL(blob);
     }
+    else {
+        console.log(item.getAsString)
+    }
 }
 
 const createTextArea = () => {
