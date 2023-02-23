@@ -36,9 +36,32 @@
                 <div class="page-content">
 
                     <section class="main-information-container" style="background-color: aqua;">
-                        <div class="main-information-block">
-                            
-                        </div>
+
+                        <!-- <div class="main-information-wrapper"> -->
+                            <div class="author-field">
+                                <%= author.nickname %>
+                            </div>
+                            <div class="main-information-block">
+                                <% contents.forEach((content)=> { %>
+
+                                    <% if(content.type=='text' ){ %>
+                                        <% console.log(content.type + "adl" ) %>
+
+                                        <%- include('./module-ejs/text-container.ejs', {content: content}); %>
+                                        <% }%>
+
+                                    <% if(content.type=='image' ){ %>
+                                        <% console.log(content.type + "adl" ) %>
+
+                                        <%- include('./module-ejs/main-image-container.ejs',
+                                            {content: content}); %>
+                                    <% }%>
+
+                                            <% }); %>
+
+
+                            </div>
+                        <!-- </div> -->
                     </section>
 
                     <%- include('./footer.ejs') %>

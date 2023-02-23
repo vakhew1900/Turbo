@@ -19,7 +19,17 @@ class NewsController {
         const id = req.params.id;
         const {news, page, contents} = await newsService.findById(id);
         console.log(JSON.stringify(news, null, 2));
-        res.render('news');
+
+        console.log('------------------------------');
+        contents.sort((prev, next) => {
+            if ( prev.content_page.number < next.content_page.number ) return -1;
+        });
+
+        const author = await page.getUser();
+        
+
+        
+        res.render('news',{author: author, contents: contents});
     }
 }
 

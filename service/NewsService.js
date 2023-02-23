@@ -108,6 +108,13 @@ class NewsService {
         console.log(JSON.stringify(page, null, 2))
         console.log(JSON.stringify(contents, null, 2));
 
+        for(let content of contents){
+            const type = await content.getType();
+            console.log(type.name);
+            content.type = type.name;
+        }
+
+        // console.log(JSON.stringify(contents[0].type, null, 2));
         return {news: news, page: page, contents: contents };
     }
 }

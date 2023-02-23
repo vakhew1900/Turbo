@@ -17,11 +17,25 @@
 
 
 @media (max-width: 1200px){
+
+    .main-information-block{
+        max-width: 80%;
+    }
+    
+}
+
+@media (max-width: 1030px) {
+    
+    .main-information-block{
+        max-width: 90%;
+    }
+}
+
+@media(max-width : 933px){
     .news-container{
         justify-content: center;
     }
 }
-
 
 
 .news-block{
@@ -32,6 +46,23 @@
     margin-bottom: 40px;
     /* color: var(--font-color); */
 }
+
+
+@media(max-width: 933px){
+    .news-block{
+        width: 65%;
+    }
+}
+
+
+@media (max-width: 576px){
+    
+    .news-block{
+        width: 100%;
+    }
+
+}
+
 
 .news-wrapper{
     display: flex;
