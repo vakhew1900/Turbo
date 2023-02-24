@@ -1,5 +1,5 @@
 const { where } = require('sequelize');
-const { News, sequelize, Content, Type, Page, ContentPage } = require('../db');
+const { News, sequelize, Content, Type, Page, ContentPage, User } = require('../db');
 const PageService = require('./PageService')
 const { Op } = require('sequelize');
 
@@ -14,6 +14,39 @@ class NewsService {
         const news = await News.create({ news_id: page.page_id, title: title.text, main_image_id: main_image.content_id });
 
         return news;
+    }
+
+    async getNews(used_news_id = []) {
+
+        const limit = 20;
+
+        if (Array.isArray(used_news_id) == false){
+            throw new Error("incorrect params");
+        }
+
+        const news_array = await News.findAll(
+            {
+                limit: limit,
+
+                where: {
+                    news_id: {
+                        [Op.notIn]: used_news_id
+                    }
+                },
+
+                include: {
+                    model: Page,
+                    include: {
+                        model: User,
+                        attributes: { exclude: ["password", "email"] }
+                    }
+                }
+            }
+        )
+
+        console.log(JSON.stringify(news_array, null, 2))
+
+        console.log(JSON.stringify(news_array[0].page.user, null, 2))
     }
 
     async findTitle(page) {
@@ -82,6 +115,8 @@ class NewsService {
             }
         )
 
+
+
         return main_image;
 
     }
@@ -108,20 +143,20 @@ class NewsService {
         console.log(JSON.stringify(page, null, 2))
         console.log(JSON.stringify(contents, null, 2));
 
-        for(let content of contents){
+        for (let content of contents) {
             const type = await content.getType();
             console.log(type.name);
             content.type = type.name;
         }
 
         // console.log(JSON.stringify(contents[0].type, null, 2));
-        return {news: news, page: page, contents: contents };
+        return { news: news, page: page, contents: contents };
     }
 }
 
 const newsService = new NewsService;
 
-newsService.findById(22)
+newsService.getNews();
 
 module.exports = new NewsService();
 
