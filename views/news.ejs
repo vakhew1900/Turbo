@@ -46,31 +46,12 @@
 
                 <div class="page-content">
 
-                    <section class="main-information-container" style="background-color: aqua;">
+                    <section class="main-information-container" >
 
                         <!-- <div class="main-information-wrapper"> -->
                         <div class="main-information-block article-block">
 
-                            <div class="author-block-wrapper">
-                                <div class="author-wrapper">
-
-                                    
-                                    <div class="author-logo">
-
-                                    </div>
-
-                                    <div class="author-field">
-                                        <b>
-                                            <%= author.nickname %>
-                                        </b>
-                                    </div>
-
-                                    <div class="news-date">
-                                        22 марта 2023
-                                    </div>
-
-                                </div>
-                            </div>
+                            <%- include('./module-ejs/author-block-wrapper.ejs', {author: author}) %>
 
                             <% contents.forEach((content)=> { %>
 

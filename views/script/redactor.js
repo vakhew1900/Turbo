@@ -8,10 +8,10 @@ document.onpaste = function (pasteEvent) {
 
     const element = pasteEvent.target;
 
-    if (element.nodeName != 'TEXTAREA'){
+    if (element.nodeName != 'TEXTAREA') {
         return;
     }
-    
+
 
     console.log('ffff');
     console.log(element.value);
@@ -33,7 +33,9 @@ document.onpaste = function (pasteEvent) {
             element.after(mainImageContainer);
             const textarea = createTextArea();
             mainImageContainer.after(textarea);
-            
+            makeAdaptiveTextArea(textarea)
+            makeTabulation(textarea)
+
         };
 
         reader.readAsDataURL(blob);
@@ -47,11 +49,11 @@ const createTextArea = () => {
     const textarea = document.createElement('textarea');
     textarea.placeholder = "Написать";
     textarea.classList.add('content-unit');
-    textarea
+    textarea.classList.add('text-container');
     return textarea;
 }
 
-const createMainImageContainer = (image) =>{
+const createMainImageContainer = (image) => {
     // console.log('1111')
     let mainImageContainer = document.createElement('div');
     console.log(mainImageContainer);
@@ -61,7 +63,7 @@ const createMainImageContainer = (image) =>{
     return mainImageContainer;
 }
 
-const createImg = (src) =>{
+const createImg = (src) => {
     let img = document.createElement('img');
     console.log(img)
     img.src = src;
@@ -69,7 +71,7 @@ const createImg = (src) =>{
     return img;
 }
 
-const createImageContainerByScr = (src)=>{
+const createImageContainerByScr = (src) => {
     let img = createImg(src);
     let mainImageContainer = createMainImageContainer(img);
     return mainImageContainer;
@@ -78,13 +80,37 @@ const createImageContainerByScr = (src)=>{
 
 var textareas = document.getElementsByTagName('textarea');
 var count = textareas.length;
-for(var i=0;i<count;i++){
-    textareas[i].onkeydown = function(e){
-        if(e.keyCode==9 || e.which==9){
+for (var i = 0; i < count; i++) {
+
+    makeTabulation(textareas[i]);
+    makeAdaptiveTextArea(textareas[i])
+
+}
+
+function makeTabulation(textarea) {
+
+    textarea.onkeydown = function (e) {
+        if (e.keyCode == 9 || e.which == 9) {
             e.preventDefault();
             var s = this.selectionStart;
-            this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
-            this.selectionEnd = s+1; 
+            this.value = this.value.substring(0, this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+            this.selectionEnd = s + 1;
         }
     }
 }
+
+function makeAdaptiveTextArea(textarea) {
+    textarea.setAttribute('style', 'height:' + (textarea.scrollHeight) + 'px;overflow-y:hidden;');
+    textarea.addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+
+    this.style.height = 'auto';
+
+    this.style.height = (this.scrollHeight) + 'px';
+
+}
+
+
+

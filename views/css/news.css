@@ -52,19 +52,6 @@
     
 } */
 
-.text-container {
-
-    width: 90%;
-    color: var(--font-news-color);
-    /* font-family: 'Open Sans', sans-serif; */
-    font-family: -apple-system,BlinkMacSystemFont,Arial,sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.1px;
-    line-height: 1.5em;
-    font-weight: 300;
-    /* white-space: pre; */
-    /* white-space: pre-wrap; */
-}
 
 pre{
     display: inline;

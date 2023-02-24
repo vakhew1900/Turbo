@@ -26,36 +26,42 @@
 </head>
 
 <body>
-    
+
     <%- include('./header.ejs') %>
 
-    <div class="page-with-menu">
-        
-        <%- include('./menu-bar.ejs') %>
+        <div class="page-with-menu">
 
-        <div class="page-content">
+            <%- include('./menu-bar.ejs') %>
 
-            <section class="main-information-container" style="background-color: aqua;">
-                <div class="main-information-block redactor-block article-body">
-                 <!-- <div class="redactor-block"> -->
-                    <img  id= "image" src="" alt="">
-                    <textarea class = "content-unit title-area" name="" id="header-area" cols="1" rows="2" placeholder="Заголовок"></textarea>
-                    <textarea class = "content-unit " name="" id="" cols="100" rows="10" placeholder="Написать"></textarea>
-                <!-- </div> -->
+                <div class="page-content">
+
+                    <section class="main-information-container">
+                        <div class="main-information-block redactor-block article-body">
+                            <!-- <div class="redactor-block"> -->
+                          
+                                
+                            <!-- <textarea class="content-unit article-title text-container" name="" id="header-area" -->
+                                placeholder="Заголовок"></textarea>
+
+
+
+                            <textarea class="content-unit text-container" name="" id=""
+                                placeholder="Написать"></textarea>
+
+                        </div>
+                    </section>
+
+                    <%- include('./footer.ejs') %>
+
                 </div>
-            </section>
 
-            <%- include('./footer.ejs') %>
-            
+                <button id="tmp-button" onclick="sendDraft()">Провер-очка</button>
+                <button id="tmp-button" onclick="sendNews()">Отправить новость</button>
         </div>
-
-        <button id="tmp-button" onclick="sendDraft()">Провер-очка</button>
-        <button id="tmp-button" onclick="sendNews()">Отправить новость</button>
-    </div>
-    <%- include('./script.ejs') %>
-    <script src="/script/redactor.js"></script>
-    <script src="/script/paste.js"></script>
-    <script src="/script/sendImage.js"></script>
+        <%- include('./script.ejs') %>
+            <script src="/script/redactor.js"></script>
+            <script src="/script/paste.js"></script>
+            <script src="/script/sendImage.js"></script>
 </body>
 
 </html>

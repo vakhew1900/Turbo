@@ -12,15 +12,16 @@
 .main-information-block {
     max-width: 65%;
     min-width: 65%;
-    background-color: #FFFAFA;
+    background-color: white;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 textarea{
-    width: 90%;
+    width: 100%;
     margin-bottom: 30px;
 }
 
@@ -32,6 +33,8 @@ textarea{
     max-width: 600px;
     max-height: 400px;
     margin-bottom: 2rem;
+    /* display: flex; */
+    /* justify-content: center; */
 }
 
 
@@ -39,7 +42,13 @@ textarea{
 textarea{
     border: 0;
     outline: none;
+    resize: none;
 	/* -moz-appearance: none; */
 }
 
+.textarea-wrapper{
+    width: 90%;
+    height: auto;
+    
+}
 

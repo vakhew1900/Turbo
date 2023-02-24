@@ -109,6 +109,12 @@ body {
     font-size: 1.4rem;
 }
 
+.avatar-icon-wrapper{
+    width: calc(var(--button-height) + 6px);
+    display: flex;
+    justify-content: center;
+}
+
 .avatar-icon {
     border-radius: 100%;
     height: var(--button-height);
