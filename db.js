@@ -104,6 +104,17 @@ News.belongsTo(Page,
     }
 );
 
+
+News.hasOne(Content,
+    {
+        foreignKey: "content_id"
+    })
+
+Content.belongsTo(News,
+    {
+        foreignKey: "content_id"
+    })
+
 // Comment-MultiContent
 Content.hasOne(Comment,
     {
@@ -158,7 +169,7 @@ News.belongsToMany(Comment, { through: NewsComments, foreignKey: 'news_id' });
 
 const ContentPage = sequelize.define('content_page',
     {
-        
+
         content_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -202,17 +213,17 @@ Page.belongsToMany(Content, { through: ContentPage, foreignKey: 'page_id' });
 
 
 const db = {
-    Type : Type,
-    Content : Content,
+    Type: Type,
+    Content: Content,
     User: User,
-    Status : Status,
-    Page : Page,
-    Draft : Draft,
-    News : News,
-    Comment : Comment,
-    NewsComments : new NewsComments(),
-    ContentPage : new ContentPage(),
-    sequelize : sequelize
+    Status: Status,
+    Page: Page,
+    Draft: Draft,
+    News: News,
+    Comment: Comment,
+    NewsComments: new NewsComments(),
+    ContentPage: new ContentPage(),
+    sequelize: sequelize
 }
 
 module.exports = db;

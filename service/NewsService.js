@@ -20,7 +20,7 @@ class NewsService {
 
         const limit = 20;
 
-        if (Array.isArray(used_news_id) == false){
+        if (Array.isArray(used_news_id) == false) {
             throw new Error("incorrect params");
         }
 
@@ -34,19 +34,25 @@ class NewsService {
                     }
                 },
 
-                include: {
+                include: [{
                     model: Page,
                     include: {
                         model: User,
                         attributes: { exclude: ["password", "email"] }
                     }
+                },
+
+                {
+                    model : Content
                 }
+            ]
             }
+
         )
 
-        console.log(JSON.stringify(news_array, null, 2))
 
-        console.log(JSON.stringify(news_array[0].page.user, null, 2))
+        return news_array;
+        // console.log(JSON.stringify(news_array[0].page.user, null, 2))
     }
 
     async findTitle(page) {

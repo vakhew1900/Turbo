@@ -42,6 +42,7 @@
     color: #212529;
     text-align: left;
     padding-top: 1.2rem;
+    word-break: break-all;
     
 }
 

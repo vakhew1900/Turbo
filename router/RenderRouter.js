@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const NewsController = require('../controller/NewsController');
+const RenderController = require('../controller/RenderController');
 const authMiddlewaree = require('../middleware/authMiddlewaree');
 const renderRouter = new Router();
 
@@ -22,9 +23,7 @@ renderRouter.get('/redactor', authMiddlewaree, (req, res) => {
     res.render('redactor');
 })
 
-renderRouter.get('/news-list', (req, res) => {
-    res.render('news-list');
-})
+renderRouter.get('/news-list', RenderController.renderNewsListPage)
 
 renderRouter.get('/news', (req, res) => {
     res.render('news');

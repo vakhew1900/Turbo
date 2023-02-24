@@ -38,81 +38,10 @@
 
                             <div class="news-wrapper">
                                 <div class="news-container">
-
-                                    <div class="news-block">
-                                        <div class="news-block-container">
-                                            <div class="news-name">Заголовок новости может иметь быть на нескольких
-                                                строчках</div>
-                                            <div class="news-description">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing </div>
-                                            <div class="news-author">Автор статьи</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block">
-                                        <div class="news-block-container">
-                                            <div class="news-name">Новость</div>
-                                            <div class="news-description">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing </div>
-                                            <div class="news-author">Автор</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block">
-                                        <div class="news-block-container">
-                                            <div class="news-name">Новость</div>
-                                            <div class="news-description">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing </div>
-                                            <div class="news-author">Автор</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block">
-                                        <div class="news-block-container">
-                                            <div class="news-name">Новость</div>
-                                            <div class="news-description">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing </div>
-                                            <div class="news-author">Автор</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block">
-                                        <div class="news-block-container">
-                                            <div class="news-name">Новость</div>
-                                            <div class="news-description">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing </div>
-                                            <div class="news-author">Автор</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block">
-                                        <div class="news-block-container">
-                                            <div class="news-name">Новость</div>
-                                            <div class="news-description">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing </div>
-                                            <div class="news-author">Автор</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block">
-                                        <div class="news-block-container">
-                                            <div class="news-name">Новость</div>
-                                            <div class="news-description">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing </div>
-                                            <div class="news-author">Автор</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="news-block">
-                                        <div class="news-block-container">
-                                            <div class="news-name">Новость</div>
-                                            <div class="news-description">Lorem ipsum dolor sit amet consectetur
-                                                adipisicing </div>
-                                            <div class="news-author">Автор</div>
-                                        </div>
-                                    </div>
-
-
+                                    
+                                    <% news_array.forEach((news) => { %>
+                                    <%- include('./module-ejs/news-block.ejs', {news : news}) %>
+                                    <% }) %> 
                                 </div>
                             </div>
                         </div>
@@ -123,6 +52,7 @@
                 </div>
         </div>
         <%- include('./script.ejs') %>
+        <script src="./script/news-list.js"></script>
 </body>
 
 </html>

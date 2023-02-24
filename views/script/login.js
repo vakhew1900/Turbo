@@ -7,7 +7,7 @@ const submit = document.querySelector('#button-input')
 
 console.log(form)
 console.log(submit)
-
+localStorage.removeItem('token');
 form.addEventListener('submit', async function (event) {
     
     event.preventDefault();

@@ -34,7 +34,7 @@ document.onpaste = function (pasteEvent) {
             const textarea = createTextArea();
             mainImageContainer.after(textarea);
             makeAdaptiveTextArea(textarea)
-            makeTabulation(textarea)
+            // makeTabulation(textarea)
 
         };
 
@@ -82,22 +82,22 @@ var textareas = document.getElementsByTagName('textarea');
 var count = textareas.length;
 for (var i = 0; i < count; i++) {
 
-    makeTabulation(textareas[i]);
+    // makeTabulation(textareas[i]);
     makeAdaptiveTextArea(textareas[i])
 
 }
 
-function makeTabulation(textarea) {
+// function makeTabulation(textarea) {
 
-    textarea.onkeydown = function (e) {
-        if (e.keyCode == 9 || e.which == 9) {
-            e.preventDefault();
-            var s = this.selectionStart;
-            this.value = this.value.substring(0, this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
-            this.selectionEnd = s + 1;
-        }
-    }
-}
+//     textarea.onkeydown = function (e) {
+//         if (e.keyCode == 9 || e.which == 9) {
+//             e.preventDefault();
+//             var s = this.selectionStart;
+//             this.value = this.value.substring(0, this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+//             this.selectionEnd = s + 1;
+//         }
+//     }
+// }
 
 function makeAdaptiveTextArea(textarea) {
     textarea.setAttribute('style', 'height:' + (textarea.scrollHeight) + 'px;overflow-y:hidden;');

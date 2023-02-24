@@ -12,7 +12,7 @@
     top:70px;
     width: 260px;
     left: -260px;
-    position: fixed;
+    position: absolute;
     background-color: var(--main-color);
     /* transition: left .3s; */
     /* border-right: solid; */
@@ -53,8 +53,18 @@
 }
 
 
+
+
 @media(max-width: 767px){
     .menu-selected{
         width: 100%;
     }
+
+
+}
+
+
+.menu-element > a {
+    text-decoration: none;
+    color : white
 }
