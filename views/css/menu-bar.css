@@ -12,7 +12,7 @@
     top:70px;
     width: 260px;
     left: -260px;
-    position: absolute;
+    position: fixed;
     background-color: var(--main-color);
     /* transition: left .3s; */
     /* border-right: solid; */
@@ -20,6 +20,7 @@
     /* border-color: var(--font-color); */
     display: flex;
     justify-content: center;
+    z-index: 8;
 }
 
 .menu-list{
@@ -55,12 +56,12 @@
 
 
 
-@media(max-width: 767px){
+
+@media(max-width: 576px){
     .menu-selected{
         width: 100%;
+        left: 0;
     }
-
-
 }
 
 
