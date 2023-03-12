@@ -49,14 +49,18 @@
                                 placeholder="Написать"></textarea>
 
                         </div>
+
                     </section>
+
+
+                    <button id="tmp-button" class ="send-button" onclick="sendNews()">Опубликовать</button>
+                    <!-- <button id="tmp-button"  onclick="sendDraft()">Провер-очка</button> -->
+                   
 
                     <%- include('./footer.ejs') %>
 
                 </div>
 
-                <button id="tmp-button" onclick="sendDraft()">Провер-очка</button>
-                <button id="tmp-button" onclick="sendNews()">Отправить новость</button>
         </div>
         <%- include('./script.ejs') %>
             <script src="/script/redactor.js"></script>

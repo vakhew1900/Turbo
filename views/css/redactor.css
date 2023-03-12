@@ -52,3 +52,15 @@ textarea{
     
 }
 
+.send-button{
+    width: 170;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+
+    /* текст */
+    font-size: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+}

@@ -94,7 +94,15 @@ async function sendNews() {
     body: form
   })
 
-  const filenames = await res.json();
+  const news = await res.json();
+
+  if (res.status == 200){
+    window.location.replace(pref + '/news' + '/' + news.news_id);
+  }
+  else {
+     alert('Произошла ошибка. Извините');
+  }
+
   console.log(filenames)
 }
 
