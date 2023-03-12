@@ -53,22 +53,32 @@
 
                             <%- include('./module-ejs/author-block-wrapper.ejs', {author: author}) %>
 
-                            <% contents.forEach((content)=> { %>
+                            <% for(let i = 0; i < contents.length; i++) { %>
+                                <% const content = contents[i]; %>
+                                
+                                <% if (i == 0) { %>
+                                    
+                                    <%- include('./module-ejs/article-title.ejs', {content: content}) %>
+                                    <% 
+                                    continue;
+                                    };%>
+
 
                                 <% if(content.type=='text' ){ %>
                                     <% console.log(content.type + "adl" ) %>
 
                                         <%- include('./module-ejs/text-container.ejs', {content: content}); %>
-                                            <% }%>
+                                    <% }%>
 
-                                                <% if(content.type=='image' ){ %>
-                                                    <% console.log(content.type + "adl" ) %>
+                                <% if(content.type=='image' ){ %>
+                                    <% console.log(content.type + "adl" ) %>
 
-                                                        <%- include('./module-ejs/main-image-container.ejs', {content:
-                                                            content}); %>
-                                                            <% }%>
+                                     <%- include('./module-ejs/main-image-container.ejs', {content:
+                                    content}); %>
 
-                                                                <% }); %>
+                                 <% }%>
+
+                            <% } %>
 
 
                         </div>

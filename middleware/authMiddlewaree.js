@@ -18,7 +18,8 @@ const authMiddlewaree = (req, res, next) => {
             next()
     }
     catch (e){
-        res.redirect('login');
+        //  console.log(e.message)
+         res.redirect('login');
     }
 }
 
