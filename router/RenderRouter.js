@@ -19,7 +19,7 @@ renderRouter.get('/register', (req, res) => {
     res.render('register');
 })
 
-renderRouter.get('/redactor', (req, res) => {
+renderRouter.get('/redactor', authMiddlewaree, (req, res) => {
     res.render('redactor');
 })
 

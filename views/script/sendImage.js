@@ -99,6 +99,10 @@ async function sendNews() {
   if (res.status == 200){
     window.location.replace(pref + '/news' + '/' + news.news_id);
   }
+  else if (res.status == 403){
+     console.log('sdfdsfddfsdsfds');
+    window.location.href = '/login';
+  }
   else {
      alert('Произошла ошибка. Извините');
   }
