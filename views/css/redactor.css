@@ -1,15 +1,3 @@
-
-.sheet{
-    width: 100%;
-    min-height: 110vh;
-    background-color: white;
-}
-
-textarea{
-    width: 100%;
-    margin-bottom: 30px;
-}
-
 #header-area{
     margin-top: 30px;
 }
@@ -28,6 +16,8 @@ textarea{
     border: 0;
     outline: none;
     resize: none;
+    width: 100%;
+    margin-bottom: 30px;
 	/* -moz-appearance: none; */
 }
 

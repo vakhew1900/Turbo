@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/menu-bar.css">
     <link rel="stylesheet" href="/css/news.css">
-    <link rel="stylesheet" href="/css/redactor.css">
     <link rel="stylesheet" href="/css/article.css">
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
@@ -53,37 +52,51 @@
 
 
                             <div class="article-body bg-white"> 
-                            <%- include('./module-ejs/author-block-wrapper.ejs', {author: author}) %>
+                                <%- include('./module-ejs/author-block-wrapper.ejs', {author: author}) %>
 
-                            <% for(let i = 0; i < contents.length; i++) { %>
-                                <% const content = contents[i]; %>
-                                
-                                <% if (i == 0) { %>
+                                <% for(let i = 0; i < contents.length; i++) { %>
+                                    <% const content = contents[i]; %>
                                     
-                                    <%- include('./module-ejs/article-title.ejs', {content: content}) %>
-                                    <% 
-                                    continue;
-                                    };%>
+                                    <% if (i == 0) { %>
+                                        
+                                        <%- include('./module-ejs/article-title.ejs', {content: content}) %>
+                                        <% 
+                                        continue;
+                                        };%>
 
 
-                                <% if(content.type=='text' ){ %>
-                                    <% console.log(content.type + "adl" ) %>
+                                    <% if(content.type=='text' ){ %>
+                                        <% console.log(content.type + "adl" ) %>
 
-                                        <%- include('./module-ejs/text-container.ejs', {content: content}); %>
+                                            <%- include('./module-ejs/text-container.ejs', {content: content}); %>
+                                        <% }%>
+
+                                    <% if(content.type=='image' ){ %>
+                                        <% console.log(content.type + "adl" ) %>
+
+                                        <%- include('./module-ejs/main-image-container.ejs', {content:
+                                        content}); %>
+
                                     <% }%>
 
-                                <% if(content.type=='image' ){ %>
-                                    <% console.log(content.type + "adl" ) %>
-
-                                     <%- include('./module-ejs/main-image-container.ejs', {content:
-                                    content}); %>
-
-                                 <% }%>
-
-                            <% } %>
-                            
+                                <% } %>
+                                
                             </div>
 
+                            <div class="comment-container bg-white">
+                                    
+                                <form action="" class="comment-form">
+                                    <div class="comment-textarea-wrapper">
+                                        <textarea class = "comment-textarea comment-text-container" name="" id=""
+                                        placeholder="Написать комментарий"></textarea>
+                                    </div>
+
+                                    <div class="button-wrapper">
+                                        <input type="button" value="Отправить" class="comment-btn btn-text">
+                                    </div>
+                                </form>
+
+                            </div>
                         </div>
                         <!-- </div> -->
                     </section>
@@ -95,6 +108,7 @@
         <%- include('./script.ejs') %>
             <script src="/script/paste.js"></script>
             <script src="/script/sendImage.js"></script>
+            <script type="module" src="/script/news.js"></script>
 </body>
 
 </html>

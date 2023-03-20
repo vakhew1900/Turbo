@@ -1,3 +1,5 @@
+import {makeAdaptiveTextArea} from './adaptive-textarea.js'
+
 // обработчик события вставки привязан ко все странице
 let x = false;
 
@@ -99,18 +101,7 @@ for (var i = 0; i < count; i++) {
 //     }
 // }
 
-function makeAdaptiveTextArea(textarea) {
-    textarea.setAttribute('style', 'height:' + (textarea.scrollHeight) + 'px;overflow-y:hidden;');
-    textarea.addEventListener("input", OnInput, false);
-}
 
-function OnInput() {
-
-    this.style.height = 'auto';
-
-    this.style.height = (this.scrollHeight) + 'px';
-
-}
 
 
 
