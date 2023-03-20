@@ -23,8 +23,6 @@ body {
 
 .main-information-block {
     width: 65%;
-    width: 65%;
-    /* min-width: 60%; */
     color: black;
     display: flex;
     flex-direction: column;
@@ -32,6 +30,10 @@ body {
     min-height: 110vh;
 }
 
+
+.bg-white{
+    background-color: white;
+}
 
 .bg-grey{
     background-color: #FFFAFA;
