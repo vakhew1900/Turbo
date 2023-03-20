@@ -6,7 +6,11 @@ const authMiddlewaree = (req, res, next) => {
     }
     
     try {   
+            console.log(req.headers)
+            console.log(req.headers.authorization)
             const token = req.headers.authorization.split(' ')[1]
+            
+
             if (!token){
                 return res.status(403).json({message : "Forbidden"})
             }
@@ -18,7 +22,7 @@ const authMiddlewaree = (req, res, next) => {
             next()
     }
     catch (e){
-        //  console.log(e.message)
+         console.log(e.message)
          res.status(403).json(e.message);
     }
 }

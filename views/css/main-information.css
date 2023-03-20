@@ -22,9 +22,9 @@ body {
 }
 
 .main-information-block {
-    max-width: 65%;
+    width: 65%;
+    width: 65%;
     /* min-width: 60%; */
-    background-color: #FFFAFA;
     color: black;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,10 @@ body {
 }
 
 
+.bg-grey{
+    background-color: #FFFAFA;
+}
+
 .text{
     margin-left: 3%;
 }
@@ -40,13 +44,13 @@ body {
 
 @media (max-width: 992px) {
     .main-information-block {
-        max-width: 75%;
+        width: 75%;
     }
 }
 
 @media (max-width: 767px) {
     .main-information-block {
-        max-width: 80%
+        width: 80%
     }
 }
 
@@ -61,7 +65,7 @@ body {
 }
 
 .main-image-container {
-    width: 100%;
+    width: 90%;
     margin-bottom: 2rem;
 }
 

@@ -1,8 +1,10 @@
 async function href_with_authorization(link){
 
-    let headers = {
+    const headers = {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       }
+
+      console.log(localStorage.getItem('token'))
     
       const res = await fetch(link, {
         headers: headers

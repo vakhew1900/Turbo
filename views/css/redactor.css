@@ -10,14 +10,7 @@
 } */
 
 .main-information-block {
-    max-width: 65%;
-    min-width: 65%;
     background-color: white;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
 }
 
 textarea{
