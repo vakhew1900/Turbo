@@ -20,7 +20,7 @@ class UserController {
         try {
             const user = await userService.create(req.body);
             const token = generateJWT(user.user_id, user.nickname, user.email)
-            // console.log(token);
+            console.log(token);
             res.json(token);
         }
         catch (e) {
@@ -34,6 +34,8 @@ class UserController {
             const reqUser ={nickname : req.query.nickname, password: req.query.password};
             const user = await userService.getByNicknameAndPassword(reqUser);
             const token = generateJWT(user.user_id, user.nickname, user.email)
+
+            console.log(token);
             res.json(token);
         }   
         catch (e) {

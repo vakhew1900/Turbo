@@ -12,6 +12,7 @@ const app = express();
 
 const bodyparser = require('body-parser');
 const renderRouter = require('./router/RenderRouter');
+const commentRouter = require('./router/CommentRouter');
 
 
 
@@ -32,6 +33,7 @@ const startUp = () => {
     app.use('/api', userRouter)
     app.use('/api', draftRouter)
     app.use('/api', newsRouter)
+    app.use('/api', commentRouter)
     app.use('/', renderRouter)
 
     app.listen(PORT, () => console.log(`server start on ${PORT} port`));
