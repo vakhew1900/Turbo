@@ -37,6 +37,10 @@ class NewsService {
                     }
                 },
 
+                order : [
+                    ['news_id', 'DESC']
+                ],
+
                 include: [{
                     model: Page,
                     include: {
