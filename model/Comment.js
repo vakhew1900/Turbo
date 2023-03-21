@@ -19,9 +19,12 @@ module.exports = (sequelize) => {
 
           content_id : {
             type: DataTypes.INTEGER,
+          },
+
+          user_id : {
+            type: DataTypes.INTEGER
           }
 
-          
         },
         
         {

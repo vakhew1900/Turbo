@@ -230,6 +230,23 @@ module.exports = db;
 
 
 
+// Comment- User
+
+User.hasMany(Comment,
+    {
+        foreignKey: "user_id"
+    }
+)
+
+Comment.belongsTo(User,
+    {
+        foreignKey: "user_id"
+    }
+)
+
+
+const comment = Comment.create({user_id : 5, text_content: "jdfsakdfhslksdf", content_id : 177, news_id: 43})
+
 // const type = Type.create({name: "active"});
 // const content = Content.create({path: "./images", name: "image", type_id : 1 })
 // const status = Status.create({name : "active"});
