@@ -1,20 +1,20 @@
-const {CommentService} = require('../service/CommentService')
+const { CommentService } = require('../service/CommentService')
 
 
 
-class CommentController{
+class CommentController {
 
-    async create(req, res){
+    async create(req, res) {
         console.log(req.body)
-        try{
-            
-        //    const {user, multiContentArray, textArr} = reqToPageContent(req, res);
-            
-        //     console.log(JSON.stringify(multiContentArray))
-        //     const draft = await draftService.create(user, multiContentArray, textArr);
-        //     res.send(draft);
+        try {
+
+            const { text_content, news_id } = req.body;
+            const user = req.user;
+
+            const comment = CommentService.create(news_id, text_content, null, user);
+            res.send(comment);
         }
-        catch(e){
+        catch (e) {
             res.status(400).json(e.message);
         }
     }
