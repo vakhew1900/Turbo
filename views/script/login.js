@@ -1,15 +1,18 @@
 import { projectValidator } from './project_validator.js'
+import { reloadOutdatedUser } from './check-user.js'
+
 
 const form = document.querySelector('.login-form');
 const submit = document.querySelector('#button-input')
 
 
 
-console.log(form)
-console.log(submit)
-localStorage.removeItem('token');
+
+
+reloadOutdatedUser()
+
 form.addEventListener('submit', async function (event) {
-    
+
     event.preventDefault();
 
     const nickname = document.querySelector('#nickname-input').value;
@@ -25,7 +28,7 @@ form.addEventListener('submit', async function (event) {
     }
 
     form.action = `http://localhost:4000/api/users?nickname=${nickname}&password=${password}`;
-    
+
     const response = await fetch(form.action);
 
     const result = await response.json();
@@ -33,7 +36,7 @@ form.addEventListener('submit', async function (event) {
     console.log(result)
 
 
-    if(response.status == 200){
+    if (response.status == 200) {
         localStorage.setItem('token', result)
         window.location.href = "/";
     }
@@ -43,3 +46,8 @@ form.addEventListener('submit', async function (event) {
     }
 
 })
+
+
+for (let i = 0; i < 10; i++) {
+    console.log('alasdfhladhflfaksdalds');
+}

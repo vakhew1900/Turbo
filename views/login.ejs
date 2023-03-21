@@ -23,6 +23,11 @@
 </head>
 
 <body>
+
+    <script type="text/javascript">
+        
+        localStorage.removeItem('token');
+    </script>
    
     <%- include('./header.ejs') %>
     <div class="page-with-menu">
@@ -54,9 +59,10 @@
             <%- include('./footer.ejs') %>
         </div>
     </div>
+
+    <script type = "module" src="/script/login.js"></script>
     <%- include('./script.ejs') %>
     <script src="/script/draggable-card.js"></script>
-    <script type = "module" src="/script/login.js"></script>
 </body>
 
 </html>
