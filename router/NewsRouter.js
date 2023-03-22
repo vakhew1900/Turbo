@@ -9,6 +9,6 @@ const newsRouter = new Router();
 
 newsRouter.post('/news',authMiddlewaree, onload.any(), NewsController.create);
 newsRouter.get('/news/:id', NewsController.getNewsById)
-
+newsRouter.post('/get_news', NewsController.getNews)
 
 module.exports = newsRouter;

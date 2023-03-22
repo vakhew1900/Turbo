@@ -21,11 +21,17 @@ class NewsService {
 
     async getNews(used_news_id = []) {
 
+        console.log('adskladhsdfsahfadk');
         const limit = 20;
+
+        console.log('adskladhsdfsahfadk')
 
         if (Array.isArray(used_news_id) == false) {
             throw new Error("incorrect params");
         }
+
+        let used_news_id_number = used_news_id.map(Number);
+
 
         const news_array = await News.findAll(
             {
@@ -33,7 +39,7 @@ class NewsService {
 
                 where: {
                     news_id: {
-                        [Op.notIn]: used_news_id
+                        [Op.notIn]: used_news_id_number
                     }
                 },
 

@@ -39,11 +39,17 @@ class NewsController {
     async getNews(req, res) {
 
         try {
+            console.log('tut')
+            console.log(req.body);
             const { news_id_array } = req.body;
-            const news_array = await NewsService.getNews(news_id_array);
-            res.send(news_array);
+            console.log(news_id_array);
+            const news_array = await newsService.getNews(news_id_array);
+            console.log('dhsk')
+            //console.log(JSON.stringify(news_array, null, 2));
+            res.json(news_array);
         }
         catch (e) {
+            console.log(e.message);
             res.status(400).json(e.message);
         }
 

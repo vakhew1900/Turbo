@@ -2,57 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turbo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turbo</title>
 
-    <!-- шрифт -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@100&display=swap"
-        rel="stylesheet">
+  <!-- шрифт -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@100&display=swap" rel="stylesheet">
 
-    <!-- стиль -->
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/main-information.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/menu-bar.css">
-    <link rel="stylesheet" href="/css/news-list.css">
+  <!-- стиль -->
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/main-information.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/menu-bar.css">
+  <link rel="stylesheet" href="/css/news-list.css">
 </head>
 
 <body>
 
-    <%- include('./header.ejs') %>
+  <%- include('./header.ejs') %>
 
-        <div class="page-with-menu">
+  <div class="page-with-menu">
 
-            <%- include('./menu-bar.ejs') %>
+    <%- include('./menu-bar.ejs') %>
 
-                <div class="page-content">
+    <div class="page-content">
 
-                    <section class="main-information-container">
-                        <div class="main-information-block">
-                            <div class="date">29 декабря</div>
+      <section class="main-information-container">
+        <div class="main-information-block">
+          <div class="date">29 декабря</div>
 
-                            <div class="news-wrapper">
-                                <div class="news-container">
-                                    
-                                    <% news_array.forEach((news) => { %>
-                                    <%- include('./module-ejs/news-block.ejs', {news : news}) %>
-                                    <% }) %> 
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+          <div class="news-wrapper">
+            <div class="news-container">
 
-                    <%- include('./footer.ejs') %>
-
-                </div>
+              <% news_array.forEach((news) => { %>
+              <%- include('./module-ejs/news-block.ejs', {news : news}) %>
+              <% }) %>
+            </div>
+          </div>
         </div>
-        <%- include('./script.ejs') %>
-        <script src="./script/news-list.js"></script>
+      </section>
+
+      <%- include('./footer.ejs') %>
+
+    </div>
+  </div>
+  <%- include('./script.ejs') %>
+  <script src="./script/news-list.js"></script>
 </body>
 
 </html>
