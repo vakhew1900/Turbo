@@ -44,14 +44,48 @@ async function uploadNews() {
 
     console.log(news_array);
 
-    if (news_array.length == 0){
+    if (news_array.length == 0) {
         return false;
     }
+
+    news_array.forEach((news) => createNewsBlock(news));
 
     return true;
 }
 
-// uploadNews()
+
+{/* <div class="news-block" news_id = <%= news.news_id %>>
+    <div class="news-block-container">
+        <div class="news-author">Автор статьи:  <%- news.page.user.nickname %></div>
+        <div class="news-title"> <%- news.title %></div>
+        <div class="news-description"> <%- news.subtitle %></div>
+        <div class="news-main-image-container">
+            <img src="" alt="" onerror='this.style.display = "none"'>
+        </div>
+    </div>
+</div> */}
+
+function createNewsBlock(news) {
+
+    const news_block = document.createElement('div')
+    news_block.classList.add('news-block');
+    news_block.setAttribute('news_id', news.news_id);
+
+
+    news_block.innerHTML = ` 
+    <div class="news-block-container">
+        <div class="news-author">Автор статьи: ${news.page.user.nickname} </div>
+        <div class="news-title"> ${news.title} </div>
+        <div class="news-description"> ${news.subtitle}</div>
+        <div class="news-main-image-container">
+            <img src="" alt="" onerror='this.style.display = "none"'>
+        </div>
+    </div>`
+
+    const news_container = document.querySelector('.news-container');
+    news_container.append(news_block)
+
+}
 
 
 window.onload = async () => {
@@ -61,7 +95,7 @@ window.onload = async () => {
         // root: document.querySelector('.news-wrapper'),
         // без отступов
         // процент пересечения - половина изображения
-        threshold: 0.75
+        threshold: 1
     }
 
 
@@ -73,12 +107,12 @@ window.onload = async () => {
             // если элемент является наблюдаемым
             console.log(entry)
             if (entry.isIntersecting) {
-                isUpload =  uploadNews();
+                isUpload = uploadNews();
 
-                if(isUpload === false){
+                if (isUpload === false) {
                     observer.unobserve(entry.target);
                 }
-             }
+            }
         })
     }, options)
 
