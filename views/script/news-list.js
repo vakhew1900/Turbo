@@ -48,7 +48,9 @@ async function uploadNews() {
         return false;
     }
 
-    news_array.forEach((news) => createNewsBlock(news));
+    setTimeout(() => { news_array.forEach((news) => createNewsBlock(news));}, 1500);
+
+    
 
     return true;
 }

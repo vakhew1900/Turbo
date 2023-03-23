@@ -49,10 +49,16 @@ pre{
 .comment-container{
     width: 100%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
     padding-top: 3rem;
     padding-bottom: 3rem;
     border-radius: 3%;
+}
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .comment-form{
@@ -72,6 +78,9 @@ textarea.comment-textarea{
     resize: none;
 }
 
+.width-100{
+    width: 100%;
+}
 
 .comment-textarea-wrapper{
     display: flex;

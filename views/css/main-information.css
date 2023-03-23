@@ -147,3 +147,20 @@ li {
     }
 }
 
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.width-100{
+    width: 100%;
+}
+
+.width-90{
+    width: 90%;
+}
+
+.pt-4{
+    padding-top: 40px;
+}
