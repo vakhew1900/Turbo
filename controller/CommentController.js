@@ -11,6 +11,7 @@ class CommentController {
             const { text_content, news_id } = req.body;
             const user = req.user;  
             console.log('yes')
+            console.log(news_id)
 
             const comment = await CommentService.create(news_id, text_content, null, user);
             res.send(comment);

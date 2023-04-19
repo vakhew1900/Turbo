@@ -128,41 +128,55 @@ Comment.belongsTo(Content,
     }
 );
 
-// Comments-News
-const NewsComments = sequelize.define('comments_news',
+News.hasMany(Comment,
     {
-        comment_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Comment,
-                key: 'comment_id'
-            }
-
-        },
-
-        news_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: News,
-                key: 'news_id'
-            }
-        },
-    },
-
-    {
-        timestamps: false
-    },
-
-    {
-        tableName: 'comments_news'
+        foreignKey: "news_id"
     }
-);
+)
+
+News.hasOne(Comment,
+    {
+        foreignKey: "news_id"
+    }
+)
 
 
-Comment.belongsToMany(News, { through: NewsComments, foreignKey: 'comment_id' });
-News.belongsToMany(Comment, { through: NewsComments, foreignKey: 'news_id' });
+
+// // Comments-News
+// const NewsComments = sequelize.define('comments_news',
+//     {
+//         comment_id: {
+//             type: DataTypes.INTEGER,
+//             allowNull: false,
+//             references: {
+//                 model: Comment,
+//                 key: 'comment_id'
+//             }
+
+//         },
+
+//         news_id: {
+//             type: DataTypes.INTEGER,
+//             allowNull: false,
+//             references: {
+//                 model: News,
+//                 key: 'news_id'
+//             }
+//         },
+//     },
+
+//     {
+//         timestamps: false
+//     },
+
+//     {
+//         tableName: 'comments_news'
+//     }
+// );
+
+
+// Comment.belongsToMany(News, { through: NewsComments, foreignKey: 'comment_id' });
+// News.belongsToMany(Comment, { through: NewsComments, foreignKey: 'news_id' });
 
 
 //MultiContent-Page
@@ -221,7 +235,7 @@ const db = {
     Draft: Draft,
     News: News,
     Comment: Comment,
-    NewsComments: new NewsComments(),
+    // NewsComments: new NewsComments(),
     ContentPage: new ContentPage(),
     sequelize: sequelize
 }
