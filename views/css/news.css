@@ -56,10 +56,7 @@ pre{
     border-radius: 3%;
 }
 
-.flex-direction-column {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .comment-form{
     width: 90%;
@@ -78,9 +75,7 @@ textarea.comment-textarea{
     resize: none;
 }
 
-.width-100{
-    width: 100%;
-}
+
 
 .comment-textarea-wrapper{
     display: flex;

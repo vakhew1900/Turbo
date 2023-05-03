@@ -20,7 +20,7 @@ class NewsController {
 
         try {
             const id = req.params.id;
-            const { news, page, contents } = await newsService.findById(id);
+            const { news, page, contents, comments } = await newsService.findById(id);
             console.log(JSON.stringify(news, null, 2));
 
             console.log('------------------------------');
@@ -29,7 +29,10 @@ class NewsController {
             });
 
             const author = await page.getUser();
-            res.render('news', { author: author, contents: contents });
+            
+            //console.log("jKFDHSDFKLSgFDSjldfhsgdfsljhadfsgjldfs");
+            //console.log(JSON.stringify(comments, null, 2));
+            res.render('news', { author: author, contents: contents, comments : comments});
         }
         catch (e) {
             res.status(400).json(e.message);

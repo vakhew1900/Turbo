@@ -98,10 +98,10 @@
                                 
                                 <div class="comment-list width-90 pt-4">
                                     
-                                    <div class="comment">
-                                        <div class="comment-author">Автор</div>
-                                        <div class="comment-text">ЛЫВАпфылавыл</div>
-                                    </div>
+                                    <% for (let comment of comments){  %>
+                                        <%- include('./module-ejs/comment.ejs', {comment:
+                                            comment}); %>
+                                    <% }%>
                                 </div>
                             </div>
                         </div>

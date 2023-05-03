@@ -1,5 +1,5 @@
 const { where } = require('sequelize');
-const { News, sequelize, Content, Type, Page, ContentPage, User } = require('../db');
+const { News, sequelize, Content, Type, Page, ContentPage, User, Comment } = require('../db');
 const PageService = require('./PageService')
 const { Op } = require('sequelize');
 
@@ -53,11 +53,8 @@ class NewsService {
                         model: User,
                         attributes: { exclude: ["password", "email"] }
                     }
-                },
-
-                {
-                    model : Content
                 }
+
             ]
             }
 
@@ -65,7 +62,7 @@ class NewsService {
 
 
         return news_array;
-        // console.log(JSON.stringify(news_array[0].page.user, null, 2))
+        console.log(JSON.stringify(news_array[0].page.user, null, 2))
     }
 
     async findTitle(page) {
@@ -142,14 +139,27 @@ class NewsService {
 
 
     async findById(id) {
-
+        
+        let commentLimit = 20
         const news = await News.findOne({
 
             where: {
                 news_id: {
                     [Op.eq]: id
                 }
-            }
+            },
+
+            include: [
+                {
+                    model : Comment,
+                    limit : commentLimit,
+
+                    include : {
+                        model: User,
+                        attributes: { exclude: ["password", "email"] }
+                    }
+                }
+            ]
 
         }
         )
@@ -159,8 +169,11 @@ class NewsService {
 
         const page = await news.getPage();
         const contents = await page.getContents();
+        const comments = await news.comments;
         console.log(JSON.stringify(page, null, 2))
         console.log(JSON.stringify(contents, null, 2));
+        console.log(JSON.stringify(comments, null, 2));
+
 
         for (let content of contents) {
             const type = await content.getType();
@@ -169,7 +182,7 @@ class NewsService {
         }
 
         // console.log(JSON.stringify(contents[0].type, null, 2));
-        return { news: news, page: page, contents: contents };
+        return { news: news, page: page, contents: contents, comments: comments };
     }
 }
 

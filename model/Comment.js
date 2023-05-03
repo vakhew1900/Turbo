@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
 
           user_id : {
             type: DataTypes.INTEGER
+          },
+
+          news_id : {
+            type: DataTypes.INTEGER
           }
 
         },
