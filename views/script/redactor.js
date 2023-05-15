@@ -6,7 +6,18 @@ let x = false;
 document.onpaste = function (pasteEvent) {
 
     // получаем первый элемент содержимого буфера обмена
-    const item = pasteEvent.clipboardData.items[0];
+    let item = pasteEvent.clipboardData.items[0];
+
+    console.log(pasteEvent.clipboardData.items[1]);
+
+    if (pasteEvent.clipboardData.items.length >= 2){
+        const tmp_item = pasteEvent.clipboardData.items[1];
+
+        if (tmp_item.type.indexOf("image") === 0){
+            item = tmp_item;
+        }
+    }
+
 
     const element = pasteEvent.target;
 
@@ -14,9 +25,12 @@ document.onpaste = function (pasteEvent) {
         return;
     }
 
+    
+
 
     console.log('ffff');
     console.log(element.value);
+    
     // смотрим, является ли элемент изображением
     if (item.type.indexOf("image") === 0) {
 
@@ -43,7 +57,8 @@ document.onpaste = function (pasteEvent) {
         reader.readAsDataURL(blob);
     }
     else {
-        console.log(item.getAsString)
+        const str = item.getAsString();
+        console.log(str)
     }
 }
 
