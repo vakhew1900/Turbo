@@ -4,7 +4,8 @@
         <div class="news-title"> <%- news.title %></div>
         <div class="news-description"> <%- news.subtitle %></div>
         <div class="news-main-image-container">
-            <img src="" alt="" onerror='this.style.display = "none"'>
+            <% console.log(news.content.path +"/" + news.content.name) %>
+            <img class = "main-img-news" src=<%- news.content.path +"/" + news.content.name %> alt="" onerror='this.style.display = "none"'>
         </div>
     </div>
 </div>

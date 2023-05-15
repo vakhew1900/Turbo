@@ -105,14 +105,14 @@ News.belongsTo(Page,
 );
 
 
-News.hasOne(Content,
+Content.hasOne(News,
     {
-        foreignKey: "content_id"
+        foreignKey: "main_image_id"
     })
 
-Content.belongsTo(News,
+News.belongsTo(Content,
     {
-        foreignKey: "content_id"
+        foreignKey: "main_image_id"
     })
 
 // Comment-MultiContent

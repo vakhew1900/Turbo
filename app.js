@@ -27,6 +27,7 @@ const startUp = () => {
     app.use(express.static(__dirname + '/views'));
     app.use('/script', express.static(__dirname + '/views/script'));
     app.use('/images', express.static(__dirname + '/images'));
+    app.use('/default', express.static(__dirname + '/default'));
 
     app.set('view engine', 'ejs');
 

@@ -13,7 +13,27 @@ class NewsService {
         const main_image = await this.findMainImage(page);
         
         
-        const main_image_id = main_image != null ? main_image.content_id : null;
+        let main_image_id = main_image != null ? main_image.content_id : null;
+
+        ///todo добавить изображение по умолчанию
+        if (main_image_id == null){
+            const default_image = await Content.findOne(
+                {
+                    where: {
+                        name: {
+                            [Op.eq] : "noimg.png"
+                        }
+                    }
+                }
+            )
+
+            if (default_image != null){
+                main_image_id = default_image.content_id;
+            }
+        }
+
+        
+
         const news = await News.create({ news_id: page.page_id, title: title.text, main_image_id: main_image_id});
 
         return news;
@@ -53,8 +73,10 @@ class NewsService {
                         model: User,
                         attributes: { exclude: ["password", "email"] }
                     }
+                },
+                {
+                    model : Content
                 }
-
             ]
             }
 

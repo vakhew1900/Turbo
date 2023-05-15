@@ -31,8 +31,8 @@
 
 
 .news-block{
-    width: 90%;
-    height: 500px;
+    width: 75%;
+    height: 550px;
     margin-bottom: 5%;
     position: relative;
 }
@@ -163,4 +163,10 @@
 
 .feedback-wrapper{
     display: flex;
+}
+
+.main-img-news{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
