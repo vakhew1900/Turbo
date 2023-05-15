@@ -29,9 +29,7 @@ class NewsController {
             });
 
             const author = await page.getUser();
-            
-            //console.log("jKFDHSDFKLSgFDSjldfhsgdfsljhadfsgjldfs");
-            //console.log(JSON.stringify(comments, null, 2));
+        
             res.render('news', { author: author, contents: contents, comments : comments});
         }
         catch (e) {

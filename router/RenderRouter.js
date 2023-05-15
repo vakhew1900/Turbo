@@ -7,9 +7,7 @@ const renderRouter = new Router();
 
 renderRouter.get('/news/:id', NewsController.getNewsById)
 
-renderRouter.get('/', (req, res) => {
-    res.render('index');
-})
+renderRouter.get('/', RenderController.renderNewsListPage)
 
 renderRouter.get('/login', (req, res) => {
     res.render('login');

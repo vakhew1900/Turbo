@@ -164,3 +164,30 @@ li {
 .pt-4{
     padding-top: 40px;
 }
+
+.content-center{
+    display: flex;
+    justify-content: center;
+}
+
+.aligns-item-center{
+    display: flex;
+    align-items: center;
+}
+
+.aligns-item-start{
+    display: flex;
+    align-items: start;
+}
+
+.height-100{
+    height: 100%;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.content-between{
+    justify-content: space-between;
+}
